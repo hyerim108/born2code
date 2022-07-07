@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 14:45:35 by hyerimki          #+#    #+#              #
-#    Updated: 2022/07/06 16:59:04 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/07/07 18:02:36 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,16 @@ SRC = ft_atoi.c \
 		ft_strncmp.c \
 		ft_strnstr.c \
 		ft_strdup.c \
-		ft_calloc.c
+		ft_calloc.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_split.c \
+		ft_itoa.c
 OBJS = $(SRC:.c=.o)
 NAME = libft.a
 
