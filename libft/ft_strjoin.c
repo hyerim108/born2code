@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:36:21 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/07 15:08:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:25:32 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ char *ft_strjoin(char const *s1, char const *s2)
     while (i < ft_strlen(s1))
         arr[x++] = s1[i++];
     i = 0;
-    while (x < ft_strlen(s2))
-        arr[i++] = s2[x++];
-    arr[i] = '\0';
+    while (i < ft_strlen(s2))
+        arr[x++] = s2[i++];
+    arr[x] = '\0';
     return (arr);
 }
