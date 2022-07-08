@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:29:20 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/08 16:28:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/08 17:12:56 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int ft_len(int n)
     if (n < 0)
     {
         size++;
-        n *= -1;
+        n = -n;
     }
     while (n > 9)
     {
@@ -36,14 +36,12 @@ char	*ft_itoa(int n)
     int     len;
 
     len = ft_len(n) - 1;
-    arr = (char *)malloc(sizeof(char) * len + 1);
-    arr[len] = 0;
+    arr = malloc(sizeof(char) * len + 1);
     if (!arr)
         return (0);
-    if (n ==0)
+    arr[len] = 0;
+    if (!n)
         arr[0] = '0';
-    if (n == -2147483648)
-        return ("-2147483648\0");
     if (n < 0)
         arr[0] = '-';
     while (n)
