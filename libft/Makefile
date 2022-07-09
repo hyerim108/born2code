@@ -6,11 +6,11 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 14:45:35 by hyerimki          #+#    #+#              #
-#    Updated: 2022/07/08 17:17:35 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/07/09 17:13:27 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 		ft_isalpha.c \
@@ -47,20 +47,38 @@ SRC = ft_atoi.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
-		ft_striteri.c 
+		ft_striteri.c
+		
+BOUNUS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstdelone.c 
 OBJS = $(SRC:.c=.o)
+OBJS_B = $(BOUNUS:.c=.o)
 NAME = libft.a
 
+ifdef BOUNUS2
+	OBJ = $(OBJS) $(OBJS_B)
+else
+	OBJ = $(OBJS)
+endif
+	
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJ)
 	ar rc $@ $^
 
 %.o : %.c
 	$(CC) $(CFAGS) -c $< -o $@
 
+bonus :
+	make BOUNUS2=1 all
+
 clean :
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(OBJS_B)
 
 fclean : clean
 	rm -rf $(NAME)

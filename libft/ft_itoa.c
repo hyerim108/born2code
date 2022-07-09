@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:29:20 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 14:22:36 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 15:33:38 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,21 @@ char	*ft_itoa(int n)
 
 	len = ft_len(n);
 	arr = malloc(sizeof(char) * len + 1);
+	if (!arr)
+		return (0);
 	if (n == -2147483648)
 		return ("-2147483648\0");
 	arr[len] = 0;
-	if (!arr)
-		return (0);
 	if (n < 0)
+	{
 		arr[0] = '-';
+		n = -n;
+	}
 	while (n)
 	{
 		len--;
-		if (n > 0)
-			arr[len] = (n % 10) + '0';
-		else
-			arr[len] = -(n % 10) + '0';
+		arr[len] = (n % 10) + '0';
 		n /= 10;
 	}
 	return (arr);
-}
-
-#include	<stdio.h>
-int	main()
-{
-	printf("%s", ft_itoa(-2147483648));
 }
