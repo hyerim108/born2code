@@ -6,13 +6,13 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:02:33 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 17:59:44 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:43:10 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	t_list	*arr;
 	int		size;

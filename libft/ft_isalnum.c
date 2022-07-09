@@ -6,14 +6,14 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:27:13 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 14:22:59 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:45:55 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    return ((c >= 'a' && c <= 'z') || \
-        (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'));
+	return ((c >= 'a' && c <= 'z') || \
+			(c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'));
 }
