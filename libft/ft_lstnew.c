@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:51:26 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 15:33:08 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:58:57 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list *ft_lstnew(void *content)
 	t_list	*arr;
 
 	arr = malloc(sizeof(t_list));
+	if (!arr)
+		return (0);
 	arr->content = content;
 	arr->next = NULL;
 	return (arr);

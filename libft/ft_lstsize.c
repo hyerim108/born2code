@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:02:33 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 16:19:59 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:59:44 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int ft_lstsize(t_list *lst)
 
 	arr = lst;
 	size = 0;
+	if (!lst)
+		return (0);
 	while (arr)
 	{
 		size++;

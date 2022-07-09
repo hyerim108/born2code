@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 14:45:35 by hyerimki          #+#    #+#              #
-#    Updated: 2022/07/09 17:13:27 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/07/09 17:53:40 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ BOUNUS = ft_lstnew.c \
 		ft_lstlast.c \
 		ft_lstadd_back.c \
 		ft_lstdelone.c \
-		ft_lstdelone.c 
+		ft_lstclear.c \
+		ft_lstiter.c
 OBJS = $(SRC:.c=.o)
 OBJS_B = $(BOUNUS:.c=.o)
 NAME = libft.a

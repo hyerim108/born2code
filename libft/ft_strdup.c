@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:59:13 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/06 19:08:53 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:09:10 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*ft_strdup(const char *s1)
 {
 	char	*arr;
 	int		i;
-    int     len;
+	int		len;
 
-    len = 0;
+	len = 0;
 	i = 0;
-    while (s1[len])
-        len++;
+	while (s1[len])
+		len++;
 	arr = malloc(sizeof(char) * len + 1);
 	if (arr == NULL)
 		return (0);

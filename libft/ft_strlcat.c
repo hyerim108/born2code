@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:42 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/06 17:52:21 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:06:53 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-
-size_t	ft_strlcat(char * dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	 size_t	i;
-	 size_t	d;
-	 size_t	s;
+	size_t	i;
+	size_t	d;
+	size_t	s;
 
 	d = ft_strlen(dst);
 	s = ft_strlen(src);

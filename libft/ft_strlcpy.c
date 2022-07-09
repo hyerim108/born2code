@@ -6,13 +6,13 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:28:38 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/06 17:52:30 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:05:55 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char * dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	cnt;
