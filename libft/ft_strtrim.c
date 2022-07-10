@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 18:01:31 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:22:13 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*arr;
 	size_t	start;
 	size_t	last;
-	size_t	i;
 
+	if (!s1 || !set)
+		return (0);
 	start = 0;
 	last = ft_strlen(s1) - 1;
 	while (s1[start] && ft_strchr(set, s1[start]))

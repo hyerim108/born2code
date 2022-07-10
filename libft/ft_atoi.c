@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 19:13:47 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:12:15 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	n;
+	int		i;
+	int		n;
 	long	result;
 
 	i = 0;

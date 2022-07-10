@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:33:25 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 18:34:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:12:00 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 
 	i = 0;
 	new_b = b;
-	while (i++ < len)
-		*new_b++ = (unsigned char)c;
+	while (i < len)
+		new_b[i++] = (unsigned char)c;
 	return (new_b);
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:08:54 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 18:31:38 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:25:05 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (fd < 0)
+	if (fd < 0 || !s)
 		return ;
 	while (s[i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:17:07 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 18:05:30 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:24:31 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*arr;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	arr = malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!arr)
 		return (0);
