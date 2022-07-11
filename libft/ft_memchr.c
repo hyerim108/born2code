@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:55:15 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/09 18:42:59 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/11 13:41:24 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (*str == (unsigned char)c)
-			return (str);
+			return ((void *)str);
 		str++;
 	}
 	return (0);
