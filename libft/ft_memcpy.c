@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:54:42 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/10 14:22:49 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:35:05 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		new_dst[i] = new_src[i];
 		i++;
 	}
-	return (new_dst);
+	return ((void *)new_dst);
 }
