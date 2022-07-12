@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:01:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/11 17:11:57 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:08:24 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*arr;
 	t_list	*tmp;
 
-	arr = 0;
 	if (!lst)
 		return (0);
+	arr = 0;
 	while (lst)
 	{
 		tmp = ft_lstnew(f(lst->content));
