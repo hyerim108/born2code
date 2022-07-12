@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 14:45:35 by hyerimki          #+#    #+#              #
-#    Updated: 2022/07/10 18:01:58 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/07/12 13:27:30 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,3 +86,5 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+.PHONY: all bonus clean fclean re
