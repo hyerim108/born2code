@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 14:46:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/14 18:50:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:21:08 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (result);
-}
-#include <stdio.h>
-int	main()
-{
-	ft_printf("%d\n", 32);
-	printf("%x", 2);
 }
