@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 14:52:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/15 17:21:19 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:43:15 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_base_mod(unsigned long long nbr, char *base, unsigned int size)
 {
-	unsigned int	mod;
+	int	mod;
 	int	result;
 
 	result = 0;
 	mod = nbr % size;
 	if (nbr / size)
-		ft_base_mod(nbr / size, base, size);
-	ft_putchar(base[mod]);
+		result += ft_base_mod(nbr / size, base, size);
+	ft_putchar(base[nbr % size]);
 	result++;
 	return (result);
 }
@@ -29,7 +29,7 @@ int	ft_base_mod(unsigned long long nbr, char *base, unsigned int size)
 unsigned long long	ft_memory(unsigned long long *nbr)
 {
 	char	*hex;
-	int	result;
+	int		result;
 
 	result = 0;
 	hex = "0123456789abcdef";

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:13:15 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/15 16:58:23 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:44:01 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putsymbol(const char *format, int i, va_list ap)
 {
 	int	result;
-	unsigned long long memory;
+	unsigned long long	memory;
 
 	result = 0;
 	if (format[i] == 'c')
