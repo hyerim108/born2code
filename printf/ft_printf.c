@@ -6,12 +6,12 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 14:46:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/20 14:42:15 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:48:51 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 int	ft_printf(const char *format, ...)
 {
 	int		result;
