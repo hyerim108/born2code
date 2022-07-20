@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 18:23:41 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/15 14:47:28 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:50:44 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_plusnbr(int nbr)
 {
-	int	result;
+	int				result;
 	unsigned int	n;
 
 	result = 0;
