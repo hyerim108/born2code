@@ -6,79 +6,75 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/22 19:37:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:08:12 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
-char	*ft_line(char *backup)
+char	*ft_read(int fd, char *arr, char *backup)
 {
-	char	*buf;
-	int		i;
+	int		size;
+	char	*save;
 
-	i = 0;
-	if (!backup)
-		return (0);
-	while (backup[i] != '\n' && backup[i])
-		i++;
-	buf = (char *)malloc(sizeof(char) * (i + 2));
-	if (!buf)
-		return (0);
-	i = 0;
-	while (backup[i] && backup[i] != '\n')
+	size = 1;
+	while (size != 0)
 	{
-		buf[i] = backup[i];
-		i++;
+		size = read(fd, arr, BUFFER_SIZE);
+		if (size == -1)
+			return (0);
+		else if (size == 0)
+			break ;
+		arr[size] = '\0';
+		if (!backup)
+			backup = ft_strdup("");
+		save = backup;
+		backup = ft_strjoin(save, arr);
+		free(save);
+		save = NULL;
+		if (ft_strchr (arr, '\n'))
+			break ;
 	}
-	if (backup[i] == '\n')
-	{
-		buf[i] = backup[i];
-		i++;
-	}
-	buf[i] = '\0';
-	return (buf);
+	return (backup);
 }
 
-int	ft_read(int fd, char **backup)
+char	*ft_line(char *save)
 {
-	char	*arr;
-	char	*buf;
-	int		size;
+	int		i;
+	char	*backup;
 
-	arr = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!arr)
+	i = 0;
+	while (save[i] != '\n' && save[i] != '\0')
+		i++;
+	if (save[i] == '\0' || save[1] == '\0')
 		return (0);
-	size = read(fd, arr, BUFFER_SIZE);
-	if (size <= 0)
+	backup = ft_substr(save, i + 1, ft_strlen(save) - i);
+	if (*backup == '\0')
 	{
-		free(arr);
-		return (0);
+		free(backup);
+		backup = NULL;
 	}
-	arr[size] = '\0';
-	buf = *backup;
-	*backup = ft_strjoin(buf, arr);
-	free(arr);
-	free(buf);
-	return (size);
+	save[i + 1] = '\0';
+	free(save);
+	return (backup);
 }
 
 char	*get_next_line(int fd)
 {
+	char		*save;
+	char		*temp;
 	static char	*backup;
-	char		*buf;
-	int			size;
 
-	size = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	while (size > 0 && !ft_strchr(backup, '\n'))
-	{
-		size = ft_read(fd, &backup);
-		if (size < 0)
-			return (0);
-	}
-	buf = ft_line(backup);
-	return (buf);
+	temp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!temp)
+		return (0);
+	save = ft_read(fd, temp, backup);
+	free(temp);
+	temp = NULL;
+	if (!save)
+		return (NULL);
+	backup = ft_line(save);
+	return (save);
 }

@@ -6,15 +6,15 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/22 19:20:51 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/24 14:21:55 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -24,8 +24,6 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strchr(char *s, int c)
 {
-	if (!s)
-		return (0);
 	while (*s)
 	{
 		if (*s == (char)c)
@@ -37,26 +35,73 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
+char	*ft_strdup(const char *s1)
+{
+	char	*arr;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = ft_strlen(s1);
+	arr = malloc(sizeof(char) * (len + 1));
+	if (arr == NULL)
+		return (0);
+	while (i < len)
+	{
+		arr[i] = s1[i];
+		i++;
+	}
+	arr[i] = '\0';
+	return (arr);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
-	size_t	i;
-	size_t	x;
+	int		len;
+	int		i;
+	int		x;
 	char	*arr;
 
 	i = 0;
 	x = 0;
-	if (!s1 || !s2)
-		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	arr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!arr)
 		return (0);
-	while (i < ft_strlen(s1))
-		arr[x++] = s1[i++];
-	i = 0;
-	while (i < ft_strlen(s2))
-		arr[x++] = s2[i++];
-	arr[x] = '\0';
+	while (s1[i] != '\0')
+	{
+		arr[i] = s1[i];
+		i++;
+	}
+	while (s2[x] != '\0')
+	{
+		arr[i + x] = s2[x];
+		x++;
+	}
+	arr[i + x] = '\0';
 	return (arr);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == 0)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }
