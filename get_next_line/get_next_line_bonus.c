@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:55:44 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/25 13:56:20 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:42:12 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ char	*ft_line(char *save)
 		backup = NULL;
 	}
 	save[i + 1] = '\0';
-	free(save);
 	return (backup);
 }
 
@@ -63,18 +62,18 @@ char	*get_next_line(int fd)
 {
 	char		*save;
 	char		*temp;
-	static char	*backup;
+	static char	*backup[OPEN_MAX];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX < fd)
 		return (0);
 	temp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
 		return (0);
-	save = ft_read(fd, temp, backup);
+	save = ft_read(fd, temp, backup[fd]);
 	free(temp);
 	temp = NULL;
 	if (!save)
 		return (NULL);
-	backup = ft_line(save);
+	backup[fd] = ft_line(save);
 	return (save);
 }

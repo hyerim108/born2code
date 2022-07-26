@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/24 16:08:12 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:26:25 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_read(int fd, char *arr, char *backup)
 {
 	int		size;
-	char	*save;
 
 	size = 1;
 	while (size != 0)
@@ -28,10 +27,7 @@ char	*ft_read(int fd, char *arr, char *backup)
 		arr[size] = '\0';
 		if (!backup)
 			backup = ft_strdup("");
-		save = backup;
-		backup = ft_strjoin(save, arr);
-		free(save);
-		save = NULL;
+		backup = ft_strjoin(backup, arr);
 		if (ft_strchr (arr, '\n'))
 			break ;
 	}
@@ -55,7 +51,6 @@ char	*ft_line(char *save)
 		backup = NULL;
 	}
 	save[i + 1] = '\0';
-	free(save);
 	return (backup);
 }
 
@@ -76,5 +71,6 @@ char	*get_next_line(int fd)
 	if (!save)
 		return (NULL);
 	backup = ft_line(save);
+	free(save);
 	return (save);
 }

@@ -7,6 +7,8 @@ int	main(void)
 {
 	int	fd;
 
-	fd = open("41_no_nl", O_RDWR);
+	fd = open("41_no_nl", O_RDONLY);
 	printf("%s", get_next_line(fd));
+	// system("leaks a.out > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
+	while (1);
 }
