@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/26 17:26:25 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:53:46 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_line(char *save)
 		free(backup);
 		backup = NULL;
 	}
+	save[i + 1] = '\n';
 	save[i + 1] = '\0';
 	return (backup);
 }
@@ -71,6 +72,5 @@ char	*get_next_line(int fd)
 	if (!save)
 		return (NULL);
 	backup = ft_line(save);
-	free(save);
 	return (save);
 }
