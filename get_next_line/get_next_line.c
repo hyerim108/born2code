@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/27 13:53:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:42:26 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_read(int fd, char *arr, char *backup)
 	while (size != 0)
 	{
 		size = read(fd, arr, BUFFER_SIZE);
-		if (size == -1)
-			return (0);
-		else if (size == 0)
+		if (size <= 0)
 			break ;
 		arr[size] = '\0';
 		if (!backup)
@@ -42,7 +40,7 @@ char	*ft_line(char *save)
 	i = 0;
 	while (save[i] != '\n' && save[i] != '\0')
 		i++;
-	if (save[i] == '\0' || save[1] == '\0')
+	if (save[i] == '\0' || save[0] == '\0')
 		return (0);
 	backup = ft_substr(save, i + 1, ft_strlen(save) - i);
 	if (*backup == '\0')
@@ -50,7 +48,6 @@ char	*ft_line(char *save)
 		free(backup);
 		backup = NULL;
 	}
-	save[i + 1] = '\n';
 	save[i + 1] = '\0';
 	return (backup);
 }
