@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:12:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/26 16:35:02 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/29 12:52:30 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
 
 char	*ft_line(char *save);
 char	*ft_read(int fd, char *arr, char *backup);
