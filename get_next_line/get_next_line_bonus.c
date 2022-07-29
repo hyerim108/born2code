@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:55:44 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/07/26 19:19:41 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:58:59 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_read(int fd, char *arr, char *backup)
 	while (size != 0)
 	{
 		size = read(fd, arr, BUFFER_SIZE);
-		if (size == -1)
-			return (0);
-		else if (size == 0)
+		if (size <= 0)
 			break ;
 		arr[size] = '\0';
 		if (!backup)
