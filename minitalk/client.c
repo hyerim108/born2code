@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:40:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/12 15:41:36 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/13 12:57:06 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	convert_char(char c, int pid)
 	i = 7;
 	while (i >= 0)
 	{
-		if (c >> i & i)
-			kill(pid, SIGUSR1);
-		else
+		if (c >> i & 1)
 			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
 		usleep(100);
 		i--;
 	}
@@ -30,10 +30,11 @@ void	convert_char(char c, int pid)
 
 int	main(int argc, char **argv)
 {
-	int	pid;
+	pid_t	pid;
 	int	i;
 
 	i = 0;
+	pid = atoi(argv[1]);
 	if (argc == 3)
 	{
 		while (argv[2][i])

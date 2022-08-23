@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 14:07:01 by hyerimki          #+#    #+#              #
-#    Updated: 2022/08/12 15:41:51 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/08/23 15:21:16 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ clean :
 	rm -rf $(OBJS_CLIENT) ${OBJS_SERVER}
 
 fclean : clean
-	rm -rf $(SERVER} ${CLIENT}
+	rm -rf server client
 
 re : fclean all
 

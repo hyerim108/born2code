@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:40:18 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/12 15:41:45 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:42:49 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	msgsend(int num)
 	int	power;
 	int	byte;
 
-	if (num == SIGUSR1)
+	if (num == SIGUSR2)
 		byte += 1 << (7 - power);
 	power++;
 	if (power == 8)
