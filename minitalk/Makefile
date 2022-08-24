@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 14:07:01 by hyerimki          #+#    #+#              #
-#    Updated: 2022/08/23 15:21:16 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/08/24 15:35:07 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CFLAGS = -Wall -Wextra -Werror
 CLIENT = client
 SERVER = server
 
-SRC_CLIENT = client.c
+SRC_CLIENT = client.c \
+			ft_put_fd.c
 SRC_SERVER = server.c \
 			ft_put_fd.c
 

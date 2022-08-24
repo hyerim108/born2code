@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:40:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/13 12:57:06 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/24 15:34:05 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ void	convert_char(char c, int pid)
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
-	int	i;
+	int		i;	
 
 	i = 0;
-	pid = atoi(argv[1]);
+	pid = ft_atoi(argv[1]);
 	if (argc == 3)
 	{
 		while (argv[2][i])
 			convert_char(argv[2][i++], pid);
+		str_end(pid);
 	}
 }
