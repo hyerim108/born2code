@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:40:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/24 15:34:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/25 10:24:10 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	pid = ft_atoi(argv[1]);
-	if (argc == 3)
+	if (argc != 3)
+		ft_putstr_fd("ERROR\n", 1);
+	else
 	{
 		while (argv[2][i])
 			convert_char(argv[2][i++], pid);
