@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:25:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/27 16:47:17 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:03:46 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,28 @@
 # include <stdlib.h> //exit
 # include "gnl/get_next_line.h"
 
+typedef struct s_content
+{
+	void	*grass;
+	void	*wall;
+	void	*cake;
+	void	*people;
+	void	*exit;
+}	t_con;
 typedef struct s_param
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
+	t_con	img;
 	int		x;
 	int		y;
 	int		width;
 	int		height;
+	int		all_tem;
+	int		item_count;
+	int		walk_cnt;
 	char	*str_line;
 }	t_param;
-
-typedef struct s_content
-{
-	int	img;
-	int	img2;
-}	t_content;
 
 # define KEY_W 13
 # define KEY_S 1
@@ -44,7 +49,16 @@ typedef struct s_content
 # define X_EVENT_KEY_RELEASE		3
 // # define X_EVENT_KEY_EXIT		17 //exit key code
 
+char	*ft_strjoin_new(char *s1, char *s2);
+char	*ft_strdup_new(const char *s1);
 int		key_press(int keycode, t_param *param);
 void	build_map(char *build, t_param *p);
+void	paste_img(t_param *p);
+void	setting_img(t_param *p);
+void	pushkey_w(t_param *p);
+void	pushkey_s(t_param *p);
+void	pushkey_a(t_param *p);
+void	pushkey_d(t_param *p);
+void	map_item_count(t_param *p);
 
 #endif
