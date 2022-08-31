@@ -6,11 +6,23 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:02:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/30 15:06:24 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/31 18:03:30 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
+int	game_end(t_param *p)
+{
+	mlx_destroy_window(p->mlx, p->win);
+	exit(0);
+}
+
+void	error(char *str)
+{
+	write(2, str, ft_strlen(str));
+	exit(1);
+}
 
 char	*ft_strdup_new(const char *s1)
 {

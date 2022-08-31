@@ -6,22 +6,27 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/30 15:06:55 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:38:45 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-#include <stdio.h>
 
-void	float_img(t_param *p, int h, int w)
+void	float_img(int key, t_param *p, int h, int w)
 {
 	mlx_put_image_to_window(p->mlx, p->win, p->img.grass, w * 32, h * 32);
 	if (p->str_line[p->width * h + w] == '1')
 		mlx_put_image_to_window(p->mlx, p->win, p->img.wall, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'C')
 		mlx_put_image_to_window(p->mlx, p->win, p->img.cake, w * 32, h * 32);
-	else if (p->str_line[p->width * h + w] == 'P')
-		mlx_put_image_to_window(p->mlx, p->win, p->img.people, w * 32, h * 32);
+	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_W)
+		mlx_put_image_to_window(p->mlx, p->win, p->img.r_w, w * 32, h * 32);
+	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_A)
+		mlx_put_image_to_window(p->mlx, p->win, p->img.r_a, w * 32, h * 32);
+	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_S)
+		mlx_put_image_to_window(p->mlx, p->win, p->img.r_s, w * 32, h * 32);
+	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_D)
+		mlx_put_image_to_window(p->mlx, p->win, p->img.r_d, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'E')
 		mlx_put_image_to_window(p->mlx, p->win, p->img.exit, w * 32, h * 32);
 }
@@ -34,11 +39,14 @@ void	setting_img(t_param *p)
 	p->img.grass = mlx_xpm_file_to_image(p->mlx, "./img/grass.xpm", &iw, &ih);
 	p->img.wall = mlx_xpm_file_to_image(p->mlx, "./img/wall.xpm", &iw, &ih);
 	p->img.cake = mlx_xpm_file_to_image(p->mlx, "./img/cake.xpm", &iw, &ih);
-	p->img.people = mlx_xpm_file_to_image(p->mlx, "./img/rabbit.xpm", &iw, &ih);
+	p->img.r_w = mlx_xpm_file_to_image(p->mlx, "./img/rabbit_w.xpm", &iw, &ih);
+	p->img.r_a = mlx_xpm_file_to_image(p->mlx, "./img/rabbit_a.xpm", &iw, &ih);
+	p->img.r_s = mlx_xpm_file_to_image(p->mlx, "./img/rabbit_s.xpm", &iw, &ih);
+	p->img.r_d = mlx_xpm_file_to_image(p->mlx, "./img/rabbit_d.xpm", &iw, &ih);
 	p->img.exit = mlx_xpm_file_to_image(p->mlx, "./img/exit.xpm", &iw, &ih);
 }
 
-void	paste_img(t_param *p)
+void	paste_img(int keycode, t_param *p)
 {
 	int	h;
 	int	w;
@@ -49,7 +57,7 @@ void	paste_img(t_param *p)
 		w = 0;
 		while (w < p->width)
 		{
-			float_img(p, h, w);
+			float_img(keycode, p, h, w);
 			w++;
 		}
 		h++;
@@ -62,6 +70,8 @@ void	build_map(char *build, t_param *p)
 	char	*line;
 
 	fd = open(build, O_RDONLY);
+	if (fd <= 0)
+		error("file error");
 	line = get_next_line(fd);
 	p->width = ft_strlen(line) - 1;
 	p->height = 0;
@@ -75,5 +85,4 @@ void	build_map(char *build, t_param *p)
 			p->str_line = ft_strjoin_new(p->str_line, line);
 	}
 	close(fd);
-	printf("%s\n", p->str_line);
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:25:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/30 15:03:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/08/31 18:02:07 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ typedef struct s_content
 	void	*grass;
 	void	*wall;
 	void	*cake;
-	void	*people;
+	void	*r_w;
+	void	*r_a;
+	void	*r_s;
+	void	*r_d;
 	void	*exit;
 }	t_con;
 typedef struct s_param
@@ -47,18 +50,22 @@ typedef struct s_param
 # define KEY_ESC 53
 // # define X_EVENT_KEY_PRESS			2
 # define X_EVENT_KEY_RELEASE		3
-// # define X_EVENT_KEY_EXIT		17 //exit key code
+# define X_EVENT_KEY_EXIT		17 //exit key code
 
 char	*ft_strjoin_new(char *s1, char *s2);
 char	*ft_strdup_new(const char *s1);
 int		key_press(int keycode, t_param *param);
 void	build_map(char *build, t_param *p);
-void	paste_img(t_param *p);
+void	paste_img(int keycode, t_param *p);
 void	setting_img(t_param *p);
-void	pushkey_w(t_param *p);
-void	pushkey_s(t_param *p);
-void	pushkey_a(t_param *p);
-void	pushkey_d(t_param *p);
+void	pushkey_w(int keycode, t_param *p);
+void	pushkey_s(int keycode, t_param *p);
+void	pushkey_a(int keycode, t_param *p);
+void	pushkey_d(int keycode, t_param *p);
+void	error(char *str);
+int		game_end(t_param *p);
+void	map_error_check(t_param *p);
 void	map_item_count(t_param *p);
+void	map_wall_check(t_param *p);
 
 #endif
