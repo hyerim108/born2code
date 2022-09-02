@@ -6,13 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:09:17 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/02 15:00:57 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:01:45 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-#include <mlx.h>
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
