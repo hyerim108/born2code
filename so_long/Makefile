@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 15:01:32 by hyerimki          #+#    #+#              #
-#    Updated: 2022/09/02 15:51:32 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/09/02 16:14:21 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,6 @@ all : ${NAME}
 
 ${NAME} : ${OBJS}
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -lmlx -framework OpenGL -framework AppKit
-# $(NAME) : $(OBJS)
-# 	ar rc $@ $^ -lmlx -framework OpenGL -framework AppKit
 	
 %.o : %.c
 	$(CC) $(CFAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:25:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/02 14:54:04 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 17:51:47 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <mlx.h>
 # include <stdlib.h> //exit
+# include <stdio.h>
 # include "gnl/get_next_line.h"
 
 typedef struct s_content
@@ -69,5 +70,7 @@ void	map_item_count(t_param *p);
 void	map_wall_check(t_param *p);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
+void	map_error_print(int e, int people, int another, t_param *p);
+void	congratulations(t_param *p);
 
 #endif

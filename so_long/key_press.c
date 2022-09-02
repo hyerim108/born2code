@@ -6,12 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 14:02:52 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/02 14:26:54 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:29:10 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-#include <stdio.h>
 
 int	key_press(int keycode, t_param *param)
 {
@@ -41,11 +40,7 @@ void	pushkey_w(int keycode, t_param *p)
 	if (p->str_line[i - p->width] == 'C')
 		p->item_count++;
 	if (p->str_line[i - p->width] == 'E' && p->item_count == p->all_tem)
-	{
-		p->walk_cnt++;
-		printf("%d\n", p->walk_cnt);
-		exit(0);
-	}
+		congratulations(p);
 	if (p->str_line[i - p->width] != '1' && p->str_line[i - p->width] != 'E')
 	{
 		p->str_line[i] = '0';
@@ -69,11 +64,7 @@ void	pushkey_s(int keycode, t_param *p)
 	if (p->str_line[i + p->width] == 'C')
 		p->item_count++;
 	if (p->str_line[i + p->width] == 'E' && p->item_count == p->all_tem)
-	{
-		p->walk_cnt++;
-		printf("%d\n", p->walk_cnt);
-		exit(0);
-	}
+		congratulations(p);
 	if (p->str_line[i + p->width] != '1' && p->str_line[i + p->width] != 'E')
 	{
 		p->str_line[i] = '0';
@@ -97,11 +88,7 @@ void	pushkey_a(int keycode, t_param *p)
 	if (p->str_line[i - 1] == 'C')
 		p->item_count++;
 	if (p->str_line[i - 1] == 'E' && p->item_count == p->all_tem)
-	{
-		p->walk_cnt++;
-		printf("%d\n", p->walk_cnt);
-		exit(0);
-	}
+		congratulations(p);
 	if (p->str_line[i - 1] != '1' && p->str_line[i - 1] != 'E')
 	{
 		p->str_line[i] = '0';
@@ -125,11 +112,7 @@ void	pushkey_d(int keycode, t_param *p)
 	if (p->str_line[i + 1] == 'C')
 		p->item_count++;
 	if (p->str_line[i + 1] == 'E' && p->item_count == p->all_tem)
-	{
-		p->walk_cnt++;
-		printf("%d\n", p->walk_cnt);
-		exit(0);
-	}
+		congratulations(p);
 	if (p->str_line[i + 1] != '1' && p->str_line[i + 1] != 'E')
 	{
 		p->str_line[i] = '0';

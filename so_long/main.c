@@ -6,11 +6,20 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:09:17 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/02 15:01:45 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:31:47 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
+void	congratulations(t_param *p)
+{
+	p->walk_cnt++;
+	printf("%d\n", p->walk_cnt);
+	printf("total walkcount : %d\n", p->walk_cnt);
+	write(1, "congratulations!\n", 17);
+	exit(0);
+}
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:02:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/02 14:36:19 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:11:00 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	game_end(t_param *p)
 
 void	error(char *str)
 {
+	write(2, "Error\n", 6);
 	write(2, str, ft_strlen(str));
 	exit(1);
 }
