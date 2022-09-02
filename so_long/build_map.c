@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/31 15:38:45 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 14:13:49 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	float_img(int key, t_param *p, int h, int w)
 		mlx_put_image_to_window(p->mlx, p->win, p->img.wall, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'C')
 		mlx_put_image_to_window(p->mlx, p->win, p->img.cake, w * 32, h * 32);
+	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_D)
+		mlx_put_image_to_window(p->mlx, p->win, p->img.r_d, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_W)
 		mlx_put_image_to_window(p->mlx, p->win, p->img.r_w, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_A)
 		mlx_put_image_to_window(p->mlx, p->win, p->img.r_a, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_S)
 		mlx_put_image_to_window(p->mlx, p->win, p->img.r_s, w * 32, h * 32);
-	else if (p->str_line[p->width * h + w] == 'P' && key == KEY_D)
-		mlx_put_image_to_window(p->mlx, p->win, p->img.r_d, w * 32, h * 32);
 	else if (p->str_line[p->width * h + w] == 'E')
 		mlx_put_image_to_window(p->mlx, p->win, p->img.exit, w * 32, h * 32);
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 15:02:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/31 18:03:30 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 14:36:19 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,22 @@ char	*ft_strjoin_new(char *s1, char *s2)
 	free(s1);
 	s1 = NULL;
 	return (arr);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	unsigned char	*str;
+	char			*point;
+
+	point = 0;
+	str = (unsigned char *)s;
+	while (*str)
+	{
+		if (*str == (unsigned char)c)
+			point = (char *)str;
+		str++;
+	}
+	if (*str == (unsigned char)c)
+		return ((char *)str);
+	return (point);
 }

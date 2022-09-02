@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 19:45:53 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/08/31 18:03:09 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/02 14:55:37 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,22 @@ void	map_wall_check(t_param *p)
 	i = 0;
 	if (p->width * p->height != ft_strlen(p->str_line))
 		error("No rectangle");
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (str1[i] != '\0' || str2[i] != '\0')
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
 }
