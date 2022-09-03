@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/03 14:44:31 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:14:09 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	paste_img(int keycode, t_param *p)
 void	build_map(char *build, t_param *p)
 {
 	int		fd;
+	int		count;
 	char	*line;
 
 	fd = open(build, O_RDONLY);
@@ -76,13 +77,19 @@ void	build_map(char *build, t_param *p)
 	p->width = ft_strlen(line) - 1;
 	p->height = 0;
 	p->str_line = ft_strdup_new(line);
+	count = ft_strlen(line);
 	free(line);
 	while (line)
 	{
 		line = get_next_line(fd);
 		p->height++;
 		if (line)
+		{
+			count = ft_strlen(line) - 1;
 			p->str_line = ft_strjoin_new(p->str_line, line);
+		}
+		if (count != p->width)
+			error("No rectangle");
 		free(line);
 	}
 	close(fd);
