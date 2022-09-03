@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/03 17:14:09 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:38:53 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	build_map(char *build, t_param *p)
 			p->str_line = ft_strjoin_new(p->str_line, line);
 		}
 		if (count != p->width)
-			error("No rectangle");
+			error("No rectangle"); 
 		free(line);
 	}
 	close(fd);
