@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 19:45:53 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/03 16:47:42 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:02:57 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	map_wall_check(t_param *p)
 	int	i;
 
 	i = 0;
-	if (p->width * p->height != ft_strlen(p->str_line))
-		error("No rectangle");
 	while (i < ft_strlen(p->str_line))
 	{
 		if (i < p->width)
