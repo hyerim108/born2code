@@ -6,11 +6,11 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 15:01:32 by hyerimki          #+#    #+#              #
-#    Updated: 2022/09/02 16:14:21 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/09/04 17:15:09 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c \

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:25:11 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/04 17:12:38 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:14:49 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SOLONG_H
 
 # include <mlx.h>
-# include <stdlib.h> //exit
+# include <stdlib.h>
 # include <stdio.h>
 # include "gnl/get_next_line.h"
 
@@ -49,9 +49,8 @@ typedef struct s_param
 # define KEY_A 0
 # define KEY_D 2
 # define KEY_ESC 53
-// # define X_EVENT_KEY_PRESS			2
 # define X_EVENT_KEY_RELEASE		3
-# define X_EVENT_KEY_EXIT		17 //exit key code
+# define X_EVENT_KEY_EXIT		17
 
 void	build_map_error(int fd, char *line, t_param *p);
 char	*ft_strjoin_new(char *s1, char *s2);

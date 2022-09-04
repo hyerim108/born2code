@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/04 17:13:24 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:49:02 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,9 @@ void	build_map(char *build, t_param *p)
 void	build_map_error(int fd, char *line, t_param *p)
 {
 	int	count;
-
+	int	total;
+	int final;
+	
 	while (line)
 	{
 		line = get_next_line(fd);
@@ -92,10 +94,11 @@ void	build_map_error(int fd, char *line, t_param *p)
 		if (line)
 		{
 			count = ft_strlen(line) - 1;
+			final = ft_strlen(line) - 1;
+			total += count;
 			p->str_line = ft_strjoin_new(p->str_line, line);
-			if (count != p->width)
-				if (line[count + 1])
-					error("No rectangle");
+			if (count != p->width && total >= ft_strlen(p->str_line) - p->width)
+				error("No rectangle");
 		}
 		free(line);
 	}
