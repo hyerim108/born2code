@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/12 19:35:01 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/14 13:26:19 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ typedef struct s_stack
 	struct s_content	bottom_b;
 }	t_stack;
 
-int factor_split(int ac, char **av);
-int	ft_strlen(char *s);
+int 	factor_split(int ac, char **av);
+int		ft_strlen(char *s);
 char	**ft_split(char *s, char c);
-int	get_length(char **str);
-int	ft_isspace(int c);
-int *number_check(int ac, char **av, int size);
+int		get_length(char **str);
+int		ft_isspace(int c);
+int 	*number_check(int ac, char **av, int size);
 void    setting_num(int *num_array, int *index, char **split_data);
-int	ft_atoi(char *str);
-void    print_error();
+int		ft_atoi(char *str);
+int    	print_error();
+t_stack stack_setting();
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/12 15:27:22 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/14 13:27:16 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,15 @@ void    setting_num(int *num_array, int *index, char **split_data)
 		i++;
 	}
 }
+
+// void    get_push_array(int *num, t_stack *stack, int size)
+// {
+//     t_stack *p;
+//     int     i;
+
+//     i = 0;
+//     while (i < size)
+//     {
+//         p = stack_setting();
+//     }
+// }
