@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/12 15:42:44 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:26:02 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	get_length(char **str)
 	return (i);
 }
 
-int	ft_isspace(int c)
+int	ft_isspace(char c)
 {
-	return (c == 32);
+	return ((c >= 9 && c <= 13) || c == ' ');
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	int		n;
@@ -56,11 +56,39 @@ int	ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (result >= 2147483648 && n == 1)
+			return (-1);
+		else if (result >= 2147483649 && n == -1)
+			return (0);
 		result *= 10;
 		result += str[i++] - 48;
 	}
-	result = result * n;
-	if (str[i] != '\0' || result > 2147483647 || result < -2147483648)
-		print_error();
-	return (result);
+	return (result * n);
+}
+
+int	ft_atoi2(char *str, int *result)
+{
+	int		i;
+	int		n;
+	long	t;
+
+	i = 0;
+	n = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			n *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		t *= 10;
+		t += str[i++] - 48;
+	}
+	*result = t * n;
+	if (str[i] != '\0' || t > 2147483647 || t < -2147483648)
+		return (0);
+	return (1);
 }
