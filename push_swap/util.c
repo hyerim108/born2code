@@ -6,11 +6,26 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 14:26:44 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:00:12 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
+
+int	check_sort(t_stack *init, int size)
+{
+	int	i;
+	
+	i = 0;
+	while (i < init->size_a)
+	{
+		if (init->stack_a[i] < init->stack_a[i - 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	factor_split(int ac, char **av)
 {
@@ -35,38 +50,4 @@ int	factor_split(int ac, char **av)
 		index++;
 	}
 	return (size);
-}
-
-int	*number_check(int ac, char **av, int size)
-{
-	int		*num_array;
-	int		i;
-	char	**split_data;
-	int		index;
-
-	i = 1;
-	index = 0;
-	num_array = malloc(sizeof(int) * size);
-	while (i < ac)
-	{
-		split_data = ft_split(av[i], ' ');
-		setting_num(num_array, &index, split_data);
-		i++;
-	}
-	return (num_array);
-}
-
-void	setting_num(int *num_array, int *index, char **split_data)
-{
-	int	num;
-	int	i;
-
-	i = 0;
-	while (split_data[i])
-	{
-		num = ft_atoi(split_data[i]);
-		num_array[*index] = num;
-		(*index)++;
-		i++;
-	}
 }

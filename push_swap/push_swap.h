@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 14:26:08 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:02:30 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@
 typedef struct s_stack
 {
 	int	*stack_a;
+	int	size_a;
 	int	*stack_b;
-	int size;
+	int	size_b;
+	int	size;
 }	t_stack;
 
-int    	print_error();
+int		print_error(int num);
 
-void    checking(t_stack *init, int ac, char **av, int size);
-void 	initialization_stack(t_stack *init, int size);
-void    setting(t_stack *init, int ac, char **av);
+void	checking(t_stack *init, int ac, char **av, int size);
+void	initialization_stack(t_stack *init, int size);
+void	setting(t_stack *init, int ac, char **av);
 void	push_swap(int ac, char **av);
 
 char	**ft_free(char **str);
@@ -35,9 +37,8 @@ size_t	ft_wordcount(char *s, char c);
 char	*ft_cpy(char *s, char c);
 char	**ft_split(char *s, char c);
 
-int 	factor_split(int ac, char **av);
-int 	*number_check(int ac, char **av, int size);
-void    setting_num(int *num_array, int *index, char **split_data);
+int		factor_split(int ac, char **av);
+int		check_sort(t_stack *init, int size);
 
 int		ft_strlen(char *s);
 int		get_length(char **str);

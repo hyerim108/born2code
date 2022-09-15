@@ -6,11 +6,12 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 14:26:02 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:57:58 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_strlen(char *s)
 {
@@ -74,6 +75,7 @@ int	ft_atoi2(char *str, int *result)
 
 	i = 0;
 	n = 1;
+	t = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
