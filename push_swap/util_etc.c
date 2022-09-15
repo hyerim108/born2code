@@ -6,12 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 15:57:58 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:17:56 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_strlen(char *s)
 {

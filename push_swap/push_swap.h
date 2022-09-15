@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 16:02:30 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:32:05 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stack
 	int	*stack_b;
 	int	size_b;
 	int	size;
+	int	pivot;
 }	t_stack;
 
 int		print_error(int num);
