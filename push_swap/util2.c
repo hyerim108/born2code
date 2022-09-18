@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:17:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/15 17:54:26 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:20:45 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,54 @@ int	factor_split(int ac, char **av)
 	return (size);
 }
 
-int setting_pivot(t_stack *init, int size, int i)
+void setting_pivot(t_stack *init, int size, int f)
 {
-    t_stack p;
+	int		*arr;
+	int		mid;
 
-    p.pivot = 0;
-    return (1);
+	
+    arr = c_paste(init, size, f);
+	init->pivot1 = arr[size / 2];
+	init->pivot2 = arr[size];
+}
+
+int	*c_paste(t_stack *init, int size, int f)
+{
+	int *arr;
+	int	i;
+
+	arr = malloc(sizeof(int) * size);
+	i = 1;
+	while (i < size + 1)
+	{
+		arr[i] = init->stack_a[init->size_a - i];
+		i++;
+	}
+	return (arr);
+}
+
+void	b_send(t_stack *init, int size, t_append *c)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (init->stack_a[init->size_a] >= init->pivot1)
+		{
+			printf("%d\n", init->pivot1);
+			c->ra++;
+		}
+		else
+		{
+			c->pb++;
+			if (init->stack_b[init->size_b] >= init->pivot2)
+			{
+				printf("%d\n", init->pivot2);
+				c->rb++;
+				printf("%d\n", c->rb);
+			}
+		}
+		i++;
+	}
 }
