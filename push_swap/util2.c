@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:17:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 15:27:10 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:27:25 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,13 @@ void	b_send(t_stack *init, int size, t_append *c)
 	int	i;
 
 	i = 0;
+	printf("pivot 1 %d\n", init->pivot1);
+	printf("pivot 2 %d\n", init->pivot2);
 	while (i < size)
 	{
 		if (init->stack_a[init->size_a] >= init->pivot1)
 		{
+			// printf("ra %d\n", init->stack_a[init->size_a]);
 			ra(init);
 			c->ra++;
 		}
@@ -84,6 +87,7 @@ void	b_send(t_stack *init, int size, t_append *c)
 			c->pb++;
 			if (init->stack_b[init->size_b] >= init->pivot2)
 			{
+				// printf("ra %d\n", init->stack_b[init->size_b]);
 				rb(init);
 				c->rb++;
 			}

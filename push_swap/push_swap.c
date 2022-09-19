@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 13:30:12 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 17:55:07 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:02:15 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	send_b(t_stack *init, int size)
 	count = (t_append){0, 0, 0, 0};
 	setting_pivot(init, size, 1);
 	b_send(init, size, &count);
-	
 	return (0);
 }
 

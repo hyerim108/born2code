@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:16:30 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 17:52:06 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:30:09 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void    pb(t_stack *init)
 {
     if (init->size_a >= 0)
     {
+        init->stack_b[init->size_b] = init->stack_a[init->size_a];
+        printf("%d\n", init->size_b);
         init->size_b++;
-        init->stack_b[init->size_b] = init->stack_a[init->size_a]; 
         init->size_a--;
-        write(1, "pa\n", 3);
+        write(1, "pb\n", 3);
     }
 }
 
