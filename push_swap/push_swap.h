@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/18 17:21:38 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:16:14 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,21 @@ int		get_length(char **str);
 int		ft_isspace(char c);
 int		ft_atoi(const char *str);
 int		ft_atoi2(char *str, int *result);
+
+void	sort_array(int arr[], int size);
+
+void    pb(t_stack *init);
+void    pa(t_stack *init);
+void    ra(t_stack *init);
+void    rb(t_stack *init);
+void    rr(t_stack *init);
+
+void    sa(t_stack *init);
+void    sb(t_stack *init);
+void    ss(t_stack *init);
+
+void    rra(t_stack *init);
+void    rrb(t_stack *init);
+void    rrr(t_stack *init);
 
 #endif

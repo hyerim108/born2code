@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/18 17:06:14 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:05:01 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	checking(t_stack *init, int ac, char **av, int size)
 			init->size_a += 1;
 			j++;
 		}
+		ft_free(arr);
 	}
 }
 
@@ -71,7 +72,7 @@ int	check_sort(t_stack *init, int size)
 	int	i;
 	
 	i = 0;
-	while (i < init->size_a)
+	while (i < size)
 	{
 		if (init->stack_a[i] < init->stack_a[i - 1])
 			return (0);
