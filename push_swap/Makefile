@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 15:01:32 by hyerimki          #+#    #+#              #
-#    Updated: 2022/09/19 16:16:43 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/09/21 11:47:05 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,12 @@ SRC = main.c \
 	swap_push.c \
 	util.c \
 	util2.c \
+	util3.c \
 	util_etc.c \
 	rotate.c \
-	reverse_rotate.c
+	reverse_rotate.c \
+	send.c \
+	nogada.c
 	
 OBJS = $(SRC:.c=.o)
 NAME = push_swap

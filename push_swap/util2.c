@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:17:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 19:39:37 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:38:27 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	factor_split(int ac, char **av)
 		while (av[index][check])
 		{
 			if (!ft_isspace(av[index][check]))
-				break;
+				break ;
 			check++;
 		}
 		split_data = ft_split(av[index], ' ');
@@ -37,12 +37,12 @@ int	factor_split(int ac, char **av)
 	return (size);
 }
 
-void setting_pivot(t_stack *init, int size, int f)
+void	setting_pivot(t_stack *init, int size, int f)
 {
 	int		*arr;
 	int		mid;
-	
-    arr = c_paste(init, size, f);
+
+	arr = c_paste(init, size, f);
 	sort_array(arr, size);
 	mid = size / 3;
 	init->pivot1 = arr[size - mid];
@@ -52,8 +52,8 @@ void setting_pivot(t_stack *init, int size, int f)
 
 int	*c_paste(t_stack *init, int size, int f)
 {
-	int *arr;
-	int j;
+	int	*arr;
+	int	j;
 
 	arr = malloc(sizeof(int) * size);
 	j = 0;
@@ -66,7 +66,7 @@ int	*c_paste(t_stack *init, int size, int f)
 	return (arr);
 }
 
-void	b_send(t_stack *init, int size, t_append *c)
+void	b_send_u(t_stack *init, int size, t_append *c)
 {
 	int	i;
 
@@ -92,25 +92,27 @@ void	b_send(t_stack *init, int size, t_append *c)
 	}
 }
 
-void			sort_array(int *arr, int size)
+void	a_send_u(t_stack *init, int size, t_append *c)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
 
 	i = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
-		j = i + 1;
-		while (j < size)
+		if (init->stack_b[init->size_b] <= init->pivot2)
 		{
-			if (arr[i] > arr[j])
+			rb(init);
+			c->ra++;
+		}
+		else
+		{
+			pa(init);
+			c->pa++;
+			if (init->stack_a[init->size_a] <= init->pivot1)
 			{
-				tmp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = tmp;
+				ra(init);
+				c->ra++;
 			}
-			j++;
 		}
 		i++;
 	}

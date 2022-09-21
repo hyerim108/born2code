@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 16:16:14 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:50:39 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ typedef struct s_stack
 	int	size_b;
 	int	size;
 	int	pivot1;
-	int pivot2;
+	int	pivot2;
 }	t_stack;
 
 typedef struct s_append
 {
 	int	ra;
-	int rb;
-	int pa;
-	int pb;
+	int	rb;
+	int	pa;
+	int	pb;
 }	t_append;
 
 int		print_error(int num);
@@ -51,8 +51,10 @@ char	**ft_split(char *s, char c);
 int		factor_split(int ac, char **av);
 void	setting_pivot(t_stack *init, int size, int f);
 int		*c_paste(t_stack *init, int size, int f);
-int		check_sort(t_stack *init, int size);
-void	b_send(t_stack *init, int size, t_append *c);
+int		check_a(t_stack *init, int size);
+int		check_b(t_stack *init, int size);
+void	b_send_u(t_stack *init, int size, t_append *c);
+void	a_send_u(t_stack *init, int size, t_append *c);
 
 int		ft_strlen(char *s);
 int		get_length(char **str);
@@ -60,20 +62,24 @@ int		ft_isspace(char c);
 int		ft_atoi(const char *str);
 int		ft_atoi2(char *str, int *result);
 
-void	sort_array(int arr[], int size);
+void	sort_array(int *arr, int size);
+void    send_sort(t_stack *init, int size, t_append *count);
+void    send_a(t_stack *init, int size);
 
-void    pb(t_stack *init);
-void    pa(t_stack *init);
-void    ra(t_stack *init);
-void    rb(t_stack *init);
-void    rr(t_stack *init);
+void    argment_3(t_stack *init);
 
-void    sa(t_stack *init);
-void    sb(t_stack *init);
-void    ss(t_stack *init);
+void	pb(t_stack *init);
+void	pa(t_stack *init);
+void	ra(t_stack *init);
+void	rb(t_stack *init);
+void	rr(t_stack *init);
 
-void    rra(t_stack *init);
-void    rrb(t_stack *init);
-void    rrr(t_stack *init);
+void	sa(t_stack *init);
+void	sb(t_stack *init);
+void	ss(t_stack *init);
+
+void	rra(t_stack *init);
+void	rrb(t_stack *init);
+void	rrr(t_stack *init);
 
 #endif

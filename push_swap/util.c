@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/19 15:05:01 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:21:37 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ void	setting(t_stack *init, int ac, char **av)
 	size = factor_split(ac, av);
 	initialization_stack(init, size);
 	checking(init, ac, av, size);
+}
+
+void	initialization_stack(t_stack *init, int size)
+{
+	init->stack_a = malloc(sizeof(t_stack) * size);
+	init->size_a = 0;
+	init->stack_b = malloc(sizeof(t_stack) * size);
+	init->size_b = 0;
+	init->size = size;
 }
 
 int	double_check(int *arr, int idx, int num)
@@ -49,34 +58,12 @@ void	checking(t_stack *init, int ac, char **av, int size)
 		while (arr[j])
 		{
 			if (!ft_atoi2(arr[j], &init->stack_a[init->size_a]) || \
-					!double_check(init->stack_a, init->size_a, init->stack_a[init->size_a]))
+					!double_check(init->stack_a, \
+						init->size_a, init->stack_a[init->size_a]))
 				print_error(-1);
 			init->size_a += 1;
 			j++;
 		}
 		ft_free(arr);
 	}
-}
-
-void	initialization_stack(t_stack *init, int size)
-{
-	init->stack_a = malloc(sizeof(t_stack) * size);
-	init->size_a = 0;
-	init->stack_b = malloc(sizeof(t_stack) * size);
-	init->size_b = 0;
-	init->size = size;
-}
-
-int	check_sort(t_stack *init, int size)
-{
-	int	i;
-	
-	i = 0;
-	while (i < size)
-	{
-		if (init->stack_a[i] < init->stack_a[i - 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }
