@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 11:50:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:25:29 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_append
 	int	pb;
 }	t_append;
 
-int		print_error(int num);
+void	print_error(int num);
 
 void	checking(t_stack *init, int ac, char **av, int size);
 void	initialization_stack(t_stack *init, int size);
@@ -59,27 +59,28 @@ void	a_send_u(t_stack *init, int size, t_append *c);
 int		ft_strlen(char *s);
 int		get_length(char **str);
 int		ft_isspace(char c);
-int		ft_atoi(const char *str);
-int		ft_atoi2(char *str, int *result);
+int		ft_atoi(char *str, int *result);
 
 void	sort_array(int *arr, int size);
 void    send_sort(t_stack *init, int size, t_append *count);
 void    send_a(t_stack *init, int size);
 
 void    argment_3(t_stack *init);
+void	argment_4(t_stack *init);
+void	swap_stack(t_stack *init);
 
 void	pb(t_stack *init);
 void	pa(t_stack *init);
-void	ra(t_stack *init);
-void	rb(t_stack *init);
+void	ra(t_stack *init, int trues);
+void	rb(t_stack *init, int trues);
 void	rr(t_stack *init);
 
-void	sa(t_stack *init);
-void	sb(t_stack *init);
+void	sa(t_stack *init, int trues);
+void	sb(t_stack *init, int trues);
 void	ss(t_stack *init);
 
-void	rra(t_stack *init);
-void	rrb(t_stack *init);
+void	rra(t_stack *init, int trues);
+void	rrb(t_stack *init, int trues);
 void	rrr(t_stack *init);
 
 #endif

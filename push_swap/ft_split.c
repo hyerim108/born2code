@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:42:35 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/12 13:26:11 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:42:35 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ char	*ft_cpy(char *s, char c)
 char	**ft_split(char *s, char c)
 {
 	char	**arr;
-	size_t	size;
-	size_t	i;
+	int		size;
+	int		i;
 
 	if (!s)
 		return (0);
@@ -78,7 +78,7 @@ char	**ft_split(char *s, char c)
 	size = ft_wordcount((char *)s, c);
 	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!arr)
-		return (0);
+		exit(1);
 	while (i < size)
 	{
 		while (*s == c)

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:43:33 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 11:22:29 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:54:33 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	check_a(t_stack *init, int size)
 {
 	int	i;
 
-	i = 0;
-	while (i < size)
+	i = init->size_a - size + 1;
+	while (i < init->size_a)
 	{
-		if (init->stack_a[i] < init->stack_a[i - 1])
+		if (init->stack_a[i] < init->stack_a[i + 1])
 			return (0);
 		i++;
 	}
@@ -54,10 +54,10 @@ int	check_b(t_stack *init, int size)
 {
 	int	i;
 
-	i = 0;
-	while (i < size)
+	i = init->size_b - size + 1;
+	while (i < init->size_b)
 	{
-		if (init->stack_b[i] < init->stack_b[i - 1])
+		if (init->stack_b[i] > init->stack_b[i + 1])
 			return (0);
 		i++;
 	}

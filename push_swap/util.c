@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 11:21:37 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:07:12 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	setting(t_stack *init, int ac, char **av)
 {
 	int	size;
-
+	
 	size = factor_split(ac, av);
 	initialization_stack(init, size);
 	checking(init, ac, av, size);
@@ -23,11 +23,13 @@ void	setting(t_stack *init, int ac, char **av)
 
 void	initialization_stack(t_stack *init, int size)
 {
-	init->stack_a = malloc(sizeof(t_stack) * size);
-	init->size_a = 0;
-	init->stack_b = malloc(sizeof(t_stack) * size);
-	init->size_b = 0;
+	init->stack_a = malloc(sizeof(int) * size);
+	init->size_a = -1;
+	init->stack_b = malloc(sizeof(int) * size);
+	init->size_b = -1;
 	init->size = size;
+	if (!init->stack_a || !init->stack_b)
+		exit(1);
 }
 
 int	double_check(int *arr, int idx, int num)
@@ -46,24 +48,42 @@ int	double_check(int *arr, int idx, int num)
 
 void	checking(t_stack *init, int ac, char **av, int size)
 {
-	int		i;
-	int		j;
-	char	**arr;
+	int		idx;
+	int		tmp_idx;
+	char	**tmp;
+	int i;
 
 	i = 1;
 	while (i < ac)
 	{
-		arr = ft_split(av[i++], ' ');
-		j = 0;
-		while (arr[j])
+		tmp_idx = 0;
+		tmp = ft_split(av[i++], ' ');
+		while (tmp[tmp_idx])
 		{
-			if (!ft_atoi2(arr[j], &init->stack_a[init->size_a]) || \
-					!double_check(init->stack_a, \
-						init->size_a, init->stack_a[init->size_a]))
-				print_error(-1);
 			init->size_a += 1;
-			j++;
+			if (!ft_atoi(tmp[tmp_idx++], &init->stack_a[init->size_a]) || \
+				!double_check(init->stack_a, init->size_a, init->stack_a[init->size_a]))
+				print_error(-1);
 		}
-		ft_free(arr);
+		ft_free(tmp);
+	}
+	swap_stack(init);
+}
+
+void			swap_stack(t_stack *init)
+{
+	int left;
+	int right;
+	int x;
+
+	left = 0;
+	right = init->size_a;
+	while (left < right)
+	{
+		x = init->stack_a[left];
+		init->stack_a[left] = init->stack_a[right];
+		init->stack_a[right] = x;
+		left++;
+		right--;
 	}
 }
