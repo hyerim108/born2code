@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:17:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 19:02:31 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:00:40 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	*c_paste(t_stack *init, int size, int f)
 	return (arr);
 }
 
-void	b_send_u(t_stack *init, int size, t_append *c)
+void	clean_b(t_stack *init, int size, t_append *c)
 {
 	int	i;
 
@@ -109,7 +109,7 @@ void	b_send_u(t_stack *init, int size, t_append *c)
 	}
 }
 
-void	a_send_u(t_stack *init, int size, t_append *c)
+void	clean_a(t_stack *init, int size, t_append *c)
 {
 	int	i;
 

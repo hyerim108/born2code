@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 19:25:29 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:00:49 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	setting_pivot(t_stack *init, int size, int f);
 int		*c_paste(t_stack *init, int size, int f);
 int		check_a(t_stack *init, int size);
 int		check_b(t_stack *init, int size);
-void	b_send_u(t_stack *init, int size, t_append *c);
-void	a_send_u(t_stack *init, int size, t_append *c);
+void	clean_b(t_stack *init, int size, t_append *c);
+void	clean_a(t_stack *init, int size, t_append *c);
 
 int		ft_strlen(char *s);
 int		get_length(char **str);
@@ -67,7 +67,11 @@ void    send_a(t_stack *init, int size);
 
 void    argment_3(t_stack *init);
 void	argment_4(t_stack *init);
+void	argment_5(t_stack *init);
 void	swap_stack(t_stack *init);
+void	nogada(t_stack *init);
+
+void	check_noga(t_stack *init, int size);
 
 void	pb(t_stack *init);
 void	pa(t_stack *init);

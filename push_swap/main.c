@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:25 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 19:07:45 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:49:51 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int	main(int ac, char **av)
 {
 	if (ac >= 2)
 		push_swap(ac, av);
-	// while (1);
 	return (0);
 }
