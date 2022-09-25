@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 13:04:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/22 15:00:49 by hyerimki         ###   ########.fr       */
+/*   Created: 2021/06/06 17:27:19 by sujo              #+#    #+#             */
+/*   Updated: 2022/09/25 15:40:14 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,76 +15,90 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+#include <stdio.h>
 
-typedef struct s_stack
+typedef struct	s_stack
 {
-	int	*stack_a;
-	int	size_a;
-	int	*stack_b;
-	int	size_b;
-	int	size;
-	int	pivot1;
-	int	pivot2;
-}	t_stack;
+	int			*a;
+	int			*b;
+	int			size_a;
+	int			size_b;
+	int			size;
+	int			pivot1;
+	int			pivot2;
+}				t_stack;
 
-typedef struct s_append
+typedef struct	s_count
 {
-	int	ra;
-	int	rb;
-	int	pa;
-	int	pb;
-}	t_append;
+	int			ra;
+	int			rb;
+	int			pb;
+	int			pa;
+}				t_count;
+//main.c
+void	print_error(void);
 
-void	print_error(int num);
-
-void	checking(t_stack *init, int ac, char **av, int size);
-void	initialization_stack(t_stack *init, int size);
-void	setting(t_stack *init, int ac, char **av);
-void	push_swap(int ac, char **av);
-
+//ft_split.c
 char	**ft_free(char **str);
 size_t	ft_wordcount(char *s, char c);
 char	*ft_cpy(char *s, char c);
 char	**ft_split(char *s, char c);
 
-int		factor_split(int ac, char **av);
-void	setting_pivot(t_stack *init, int size, int f);
-int		*c_paste(t_stack *init, int size, int f);
-int		check_a(t_stack *init, int size);
-int		check_b(t_stack *init, int size);
-void	clean_b(t_stack *init, int size, t_append *c);
-void	clean_a(t_stack *init, int size, t_append *c);
-
+//ft_atoi.c
 int		ft_strlen(char *s);
-int		get_length(char **str);
-int		ft_isspace(char c);
 int		ft_atoi(char *str, int *result);
 
-void	sort_array(int *arr, int size);
-void    send_sort(t_stack *init, int size, t_append *count);
-void    send_a(t_stack *init, int size);
+//nogada.c
+void	argment_sam(t_stack *init);
+void	argment_sa(t_stack *init);
+void	argument_o(t_stack *init);
 
-void    argment_3(t_stack *init);
-void	argment_4(t_stack *init);
-void	argment_5(t_stack *init);
-void	swap_stack(t_stack *init);
+void	btoa_util(t_stack *init, t_count *cnt, int size);
+void	atob_util(t_stack *init, t_count *cnt, int size);
+
+//pivot.c
+void	ft_sort(int arr[], int size);
+int		*copy_arr(t_stack *init, int size, int flag);
+void	get_pivot(t_stack *init, int size, int x);
+
+//push_swap.c
 void	nogada(t_stack *init);
+void	setting(t_stack *init, int ac, char **av);
+void	push_swap(int argc, char *argv[]);
 
-void	check_noga(t_stack *init, int size);
+//setting_num.c
+void	initialization_stack(t_stack *init, int size);
+int		check_duplicate(int *arr, int size, int num);
+void	swap_stack(t_stack *init);
+void	setting_num(t_stack *init, char *argv[], int argc);
 
-void	pb(t_stack *init);
-void	pa(t_stack *init);
-void	ra(t_stack *init, int trues);
-void	rb(t_stack *init, int trues);
+//util_size.c
+void	twothreefour(t_stack *init, int size);
+void	onetwothree(t_stack *init, int size);
+
+//util.c
+int		get_length(char **str);
+int		ft_isspace(char c);
+int		factor_split(int ac, char **av);
+
+//util.c
+int		check_a_sort(t_stack *init, int size);
+int		check_b_sort(t_stack *init, int size);
+void	atob(t_stack *init, int size);
+void	btoa(t_stack *init, int size);
+
+void	rra(t_stack *init, int x);
+void	rrb(t_stack *init, int x);
+void	rrr(t_stack *init);
+
+void	ra(t_stack *init, int x);
+void	rb(t_stack *init, int x);
 void	rr(t_stack *init);
 
-void	sa(t_stack *init, int trues);
-void	sb(t_stack *init, int trues);
-void	ss(t_stack *init);
-
-void	rra(t_stack *init, int trues);
-void	rrb(t_stack *init, int trues);
-void	rrr(t_stack *init);
+void	sa(t_stack *init, int x);
+void	sb(t_stack *init, int x);
+void	ss(t_stack *info);
+void	pa(t_stack *init);
+void	pb(t_stack *init);
 
 #endif

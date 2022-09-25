@@ -5,63 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 13:30:12 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/22 15:38:21 by hyerimki         ###   ########.fr       */
+/*   Created: 2022/09/15 18:58:00 by hyerimki          #+#    #+#             */
+/*   Updated: 2022/09/25 16:06:47 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	send_b(t_stack *init, int size)
+void	nogada(t_stack *init)
 {
-	t_append	count;
-	int			i;
-	
-	count = (t_append){0, 0, 0, 0};
-	if (check_a(init, size))
-		return ;
-	if (size <= 4)
-	{
-		check_noga(init, size);
-		return ;
-	}
-	setting_pivot(init, size, 1);
-	clean_b(init, size, &count);
-	send_b(init, count.ra);
-	send_a(init, count.rb);
-	send_a(init, count.pb - count.rb);
+		if (init->size_a == 2)
+			argment_sam(init);
+		else if (init->size_a == 4)
+			argument_o(init);
 }
 
-void    send_a(t_stack *init, int size)
+void	setting(t_stack *init, int ac, char **av)
 {
-	t_append	count;
-	int			i;
-
-	count = (t_append){0, 0, 0, 0};
-	if (check_b(init, size))
-		return ;
-	if (size <= 3)
-	{
-		check_noga(init, size);
-		return ;
-	}
-	setting_pivot(init, size, 0);
-	clean_a(init, size, &count);
-	send_a(init, count.rb);
+	int	size;
+	
+	size = factor_split(ac, av);
+	initialization_stack(init, size);
+	setting_num(init, av, ac);
 }
 
-void	push_swap(int ac, char **av)
+void	push_swap(int argc, char *argv[])
 {
-	t_stack		init;
+	t_stack	init;
 	
-	setting(&init, ac, av);
-	if (!check_a(&init, init.size))
+	setting(&init, argc, argv);
+	if (!check_a_sort(&init, init.size))
 	{
 		if (init.size_a == 2 || init.size_a == 4)
 			nogada(&init);
 		else
-			send_b(&init, init.size);
+			atob(&init, init.size);
 	}
-	free(init.stack_a);
-	free(init.stack_b);
+	free(init.a);
+	free(init.b);
 }

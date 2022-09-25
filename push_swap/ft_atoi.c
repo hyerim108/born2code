@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util_etc.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 12:31:22 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 19:06:24 by hyerimki         ###   ########.fr       */
+/*   Created: 2022/09/24 18:58:51 by hyerimki          #+#    #+#             */
+/*   Updated: 2022/09/25 14:58:43 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,44 +22,29 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int	get_length(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_isspace(char c)
-{
-	return ((c >= 9 && c <= 13) || c == ' ');
-}
-
 int	ft_atoi(char *str, int *result)
 {
-	long	tmp;
-	int		positive;
+	long	temp;
+	int		n;
 
-	tmp = 0;
-	positive = 1;
+	temp = 0;
+	n = 1;
 	while ((9 <= *str && *str <= 13) || *str == ' ')
 		str++;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-			positive = -1;
+			n = -1;
 		str++;
 	}
 	while ('0' <= *str && *str <= '9')
 	{
-		tmp *= 10;
-		tmp += (*str - '0') * positive;
+		temp *= 10;
+		temp += (*str - '0') * n;
 		str++;
 	}
-	if (*str != '\0' || tmp > 2147483647 || tmp < -2147483648)
+	if (*str != '\0' || temp > 2147483647 || temp < -2147483648)
 		return (0);
-	*result = tmp;
+	*result = temp;
 	return (1);
 }

@@ -6,131 +6,86 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:17:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/22 15:00:40 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/25 14:39:54 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	factor_split(int ac, char **av)
+int	check_a_sort(t_stack *init, int size)
 {
-	int		index;
-	int		size;
-	int		check;
-	char	**split_data;
-
-	size = 0;
-	index = 1;
-	while (index < ac)
-	{
-		check = 0;
-		while (av[index][check])
-		{
-			if (!ft_isspace(av[index][check]))
-				break ;
-			check++;
-		}
-		split_data = ft_split(av[index], ' ');
-		size += get_length(split_data);
-		index++;
-	}
-	ft_free(split_data);
-	return (size);
-}
-
-void	setting_pivot(t_stack *init, int size, int f)
-{
-	int		*arr;
-	int		mid;
-
-	arr = c_paste(init, size, f);
-	sort_array(arr, size);
-	mid = size / 3;
-	if (mid % 3 == 2)
-		mid++;
-	if (f == 1)
-	{
-		init->pivot1 = arr[size - mid];
-		init->pivot2 = arr[size - mid * 2];
-	}
-	else
-	{
-		init->pivot1 = arr[mid * 2 - 1];
-		init->pivot2 = arr[mid - 1];
-	}
-	free(arr);
-}
-
-int	*c_paste(t_stack *init, int size, int f)
-{
-	int	*arr;
-	int	j;
-
-	arr = malloc(sizeof(int) * size);
-	j = -1;
-	if (!arr)
-		exit(1);
-	if (f == 1)
-	{
-		while (++j < size)
-			arr[j] = init->stack_a[init->size_a - j];
-	}
-	else
-	{
-		while (++j < size)
-			arr[j] = init->stack_b[init->size_b - j];
-	}
-	return (arr);
-}
-
-void	clean_b(t_stack *init, int size, t_append *c)
-{
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < size)
+	while (i < init->size_a)
 	{
-		if (init->stack_a[init->size_a] >= init->pivot1)
-		{
-			ra(init, 1);
-			c->ra+=1;
-		}
-		else
-		{
-			pb(init);
-			c->pb+=1;
-			if (init->stack_b[init->size_b] >= init->pivot2)
-			{
-				rb(init, 1);
-				c->rb+=1;
-			}
-		}
+		if (init->a[i] < init->a[i + 1])
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-void	clean_a(t_stack *init, int size, t_append *c)
+int	check_b_sort(t_stack *init, int size)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < size)
+	while (i < init->size_b)
 	{
-		if (init->stack_b[init->size_b] <= init->pivot2)
-		{
-			rb(init, 1);
-			c->ra+=1;
-		}
-		else
-		{
+		if (init->b[i] > init->b[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	atob(t_stack *init, int size)
+{
+	t_count		cnt;
+	int			idx;
+
+	cnt = (t_count){0, 0, 0, 0};
+	if (check_a_sort(init, size))
+		return ;
+	if (size <= 4)
+	{
+		twothreefour(init, size);
+		return ;
+	}
+	get_pivot(init, size, 1);
+	atob_util(init, &cnt, size);
+	idx = -1;
+	while (++idx < cnt.ra)
+		rrr(init);
+	atob(init, cnt.ra);
+	btoa(init, cnt.rb);
+	btoa(init, cnt.pb - cnt.rb);
+}
+
+void	btoa(t_stack *init, int size)
+{
+	t_count		cnt;
+	int			idx;
+
+	cnt = (t_count){0, 0, 0, 0};
+	if (check_b_sort(init, size))
+	{
+		while (size--)
 			pa(init);
-			c->pa+=1;
-			if (init->stack_a[init->size_a] <= init->pivot1)
-			{
-				ra(init, 1);
-				c->ra+=1;
-			}
-		}
-		i++;
+		return ;
 	}
+	if (size <= 3)
+	{
+		onetwothree(init, size);
+		return ;
+	}
+	get_pivot(init, size, 0);
+	btoa_util(init, &cnt, size);
+	atob(init, cnt.pa - cnt.ra);
+	idx = -1;
+	while (++idx < cnt.ra)
+		rrr(init);
+	atob(init, cnt.rb);
+	btoa(init, cnt.ra);
 }

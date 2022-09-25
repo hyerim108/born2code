@@ -6,42 +6,42 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:16:50 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 18:52:23 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:04:20 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *init, int trues)
+void	rra(t_stack *init, int x)
 {
-	int	i;
-	int	x;
+	int temp;
+	int i;
 
 	i = 0;
-	x = init->stack_a[0];
+	temp = init->a[0];
 	while (i < init->size_a)
 	{
-		init->stack_a[i] = init->stack_a[i + 1];
+		init->a[i] = init->a[i + 1];
 		i++;
 	}
-	init->stack_a[init->size_a] = x;
+	init->a[init->size_a] = temp;
 	if (x)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *init, int trues)
+void	rrb(t_stack *init, int x)
 {
-	int	i;
-	int	x;
+	int temp;
+	int i;
 
 	i = 0;
-	x = init->stack_b[0];
+	temp = init->b[0];
 	while (i < init->size_b)
 	{
-		init->stack_b[i] = init->stack_b[i + 1];
+		init->b[i] = init->b[i + 1];
 		i++;
 	}
-	init->stack_b[init->size_b] = x;
+	init->b[init->size_b] = temp;
 	if (x)
 		write(1, "rrb\n", 4);
 }

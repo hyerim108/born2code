@@ -6,22 +6,22 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:04:25 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/22 13:49:51 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:07:07 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(int num)
+void	print_error(void)
 {
-	if (num < 0)
-		write(1, "Error\n", 6);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 
-int	main(int ac, char **av)
+int				main(int argc, char *argv[])
 {
-	if (ac >= 2)
-		push_swap(ac, av);
-	return (0);
+	if (argc >= 2)
+		push_swap(argc, argv);
+	else
+		print_error();
 }

@@ -6,84 +6,49 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:09:14 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/21 19:07:12 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/24 19:01:19 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	setting(t_stack *init, int ac, char **av)
-{
-	int	size;
-	
-	size = factor_split(ac, av);
-	initialization_stack(init, size);
-	checking(init, ac, av, size);
-}
-
-void	initialization_stack(t_stack *init, int size)
-{
-	init->stack_a = malloc(sizeof(int) * size);
-	init->size_a = -1;
-	init->stack_b = malloc(sizeof(int) * size);
-	init->size_b = -1;
-	init->size = size;
-	if (!init->stack_a || !init->stack_b)
-		exit(1);
-}
-
-int	double_check(int *arr, int idx, int num)
+int	get_length(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (i < idx)
-	{
-		if (arr[i] == num)
-			return (0);
+	while (str[i])
 		i++;
-	}
-	return (1);
+	return (i);
 }
 
-void	checking(t_stack *init, int ac, char **av, int size)
+int	ft_isspace(char c)
 {
-	int		idx;
-	int		tmp_idx;
-	char	**tmp;
-	int i;
+	return ((c >= 9 && c <= 13) || c == ' ');
+}
 
-	i = 1;
-	while (i < ac)
+int	factor_split(int ac, char **av)
+{
+	int		index;
+	int		size;
+	int		check;
+	char	**split_data;
+
+	size = 0;
+	index = 1;
+	while (index < ac)
 	{
-		tmp_idx = 0;
-		tmp = ft_split(av[i++], ' ');
-		while (tmp[tmp_idx])
+		check = 0;
+		while (av[index][check])
 		{
-			init->size_a += 1;
-			if (!ft_atoi(tmp[tmp_idx++], &init->stack_a[init->size_a]) || \
-				!double_check(init->stack_a, init->size_a, init->stack_a[init->size_a]))
-				print_error(-1);
+			if (!ft_isspace(av[index][check]))
+				break ;
+			check++;
 		}
-		ft_free(tmp);
+		split_data = ft_split(av[index], ' ');
+		size += get_length(split_data);
+		index++;
 	}
-	swap_stack(init);
-}
-
-void			swap_stack(t_stack *init)
-{
-	int left;
-	int right;
-	int x;
-
-	left = 0;
-	right = init->size_a;
-	while (left < right)
-	{
-		x = init->stack_a[left];
-		init->stack_a[left] = init->stack_a[right];
-		init->stack_a[right] = x;
-		left++;
-		right--;
-	}
+	ft_free(split_data);
+	return (size);
 }
