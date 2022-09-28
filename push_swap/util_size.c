@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:35:36 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/26 18:16:48 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:05:50 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	size_a(t_stack *init, int size)
 		if (size == 3)
 			size_3(init);
 	}
-	if (size == 4)
-		argment_4(init);
 }
 
 void	size_b(t_stack *init, int size)

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:46:50 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/26 18:18:40 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:06:04 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,6 @@ void	argment_3(t_stack *init)
 		rra(init, 1);
 	else if (init->a[0] > init->a[1] && init->a[1] < init->a[2] && \
 			init->a[0] > init->a[2])
-		sa(init, 1);
-}
-
-void	argment_4(t_stack *init)
-{
-	if (init->a[init->size_a] > init->a[init->size_a - 1])
-		sa(init, 1);
-	pb(init);
-	if (init->a[init->size_a] > init->a[init->size_a - 1])
-		sa(init, 1);
-	pb(init);
-	if (init->a[init->size_a] > init->a[init->size_a - 1]
-		&& init->b[init->size_b] < init->b[init->size_b - 1])
-		ss(init);
-	else if (init->a[init->size_a] > init->a[init->size_a - 1])
-		sa(init, 1);
-	else if (init->b[init->size_b] < init->b[init->size_b - 1])
-		sb(init, 1);
-	pa(init);
-	if (init->a[init->size_a] > init->a[init->size_a - 1])
-		sa(init, 1);
-	pa(init);
-	if (init->a[init->size_a] > init->a[init->size_a - 1])
 		sa(init, 1);
 }
 

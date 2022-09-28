@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:49:49 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/26 18:11:44 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:06:09 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	size_3(t_stack *init);
 
 //nogada.c
 void	argment_3(t_stack *init);
-void	argment_4(t_stack *init);
 void	argument_5(t_stack *init);
 void	btoa_util(t_stack *init, t_count *cnt, int size);
 void	atob_util(t_stack *init, t_count *cnt, int size);
