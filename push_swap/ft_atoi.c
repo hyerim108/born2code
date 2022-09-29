@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 18:58:51 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/25 14:58:43 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:29:20 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_atoi(char *str, int *result)
 			n = -1;
 		str++;
 	}
+	if (*str == '\0')
+		return (0);
 	while ('0' <= *str && *str <= '9')
 	{
 		temp *= 10;
