@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "libft.h": "c"
-    }
+        "libft.h": "c",
+        "pthread.h": "c",
+        "__tree": "c",
+        "bitset": "c",
+        "set": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
