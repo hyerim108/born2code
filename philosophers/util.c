@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/10/21 18:31:43 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:52:40 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,23 @@ int	ft_atoi(const char *str)
 		result += str[i++] - 48;
 	}
 	return (result * n);
+}
+
+void	ft_usleep(long time)
+{
+	long	current;
+	
+	current = get_time();
+	while (get_time() - current < time)
+		usleep(100);
+}
+
+void	out(t_pthread *pthread, char *str, int x)
+{
+	pthread_mutex_lock(&pthread->all->mutex);
+	if (x)
+		pthread_mutex_unlock(&pthread->all->mutex);
+	if (str)
+		printf("%lld philo %d %s\n", (get_time() - pthread->all->time) \
+			, pthread->i, str);
 }

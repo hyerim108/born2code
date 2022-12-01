@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:24 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/10/23 13:16:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:07:34 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,6 @@ int	error(char *str, int err)
 	return (err);
 }
 
-int	setting_init(t_philo *philo, char **av)
-{
-	philo->n_philo = ft_atoi(av[1]);
-	philo->time_to_die = ft_atoi(av[2]);
-	philo->time_to_eat = ft_atoi(av[3]);
-	philo->time_to_sleep = ft_atoi(av[4]);
-	if (av[5])
-		philo->n_eat = ft_atoi(av[5]);
-	philo->philos = malloc(sizeof(t_pthread) * (philo->n_philo));
-	if (!philo->philos)
-		return (0);
-	return (1);
-}
-
 int	main(int ac, char **av)
 {
 	t_philo	philo;
@@ -40,4 +26,6 @@ int	main(int ac, char **av)
 		return (error("argument Error", 2));
 	if (!setting_init(&philo, av))
 		return (error("allocation Error", 2));
+	ft_thread(&philo);
+	ft_free(&philo);
 }
