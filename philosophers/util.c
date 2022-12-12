@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/11/30 18:52:40 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:29:52 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_atoi(const char *str)
 void	ft_usleep(long time)
 {
 	long	current;
-	
+
 	current = get_time();
 	while (get_time() - current < time)
 		usleep(100);

@@ -6,25 +6,24 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:42:08 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/01 16:09:44 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:03:46 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    init_philo(t_philo *philo)
+void	init_philo(t_philo *philo)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (++i < philo->n_philo)
-    {
+	i = -1;
+	while (++i < philo->n_philo)
+	{
 		pthread_mutex_init(&philo->forks[i], NULL);
-        philo->philos[i].i = i + 1;
-        philo->philos[i].n_eat = 0;
+		philo->philos[i].i = i + 1;
 		philo->philos[i].time = philo->time;
 		philo->philos[i].all = philo;
-    }
+	}
 }
 
 int	setting_init(t_philo *philo, char **av)
@@ -39,7 +38,7 @@ int	setting_init(t_philo *philo, char **av)
 	if (!philo->philos)
 		return (0);
 	philo->forks = malloc(sizeof(pthread_mutex_t) * (philo->n_philo));
-	if(!philo->forks)
+	if (!philo->forks)
 		return (0);
 	philo->time = get_time();
 	init_philo(philo);
@@ -64,4 +63,23 @@ void	ft_free(t_philo *philo)
 	pthread_mutex_destroy(&(philo->mutex));
 	free(philo->philos);
 	free(philo->forks);
+}
+
+void	*ft_die(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		if (i == philo->n_philo)
+			i = 0;
+		if ((get_time() - philo->philos[i].time) > philo->time_to_die)
+		{
+			out(&philo->philos[i], "died", 0);
+			return (NULL);
+		}
+		i++;
+	}
+	return (NULL);
 }
