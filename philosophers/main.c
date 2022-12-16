@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:24 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/12 17:02:10 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:34:28 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ int	main(int ac, char **av)
 	ft_thread(&philo);
 	ft_die(&philo);
 	ft_free(&philo);
+	return (0);
 }

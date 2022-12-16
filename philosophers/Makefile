@@ -6,12 +6,12 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 17:10:27 by hyerimki          #+#    #+#              #
-#    Updated: 2022/12/12 17:25:01 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/12/16 19:07:22 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
 SRC = init.c \
 		main.c\
 		threads.c\
@@ -21,10 +21,10 @@ OBJS = $(SRC:.c=.o)
 COLOR = \033[33m
 NAME = philo
 	
-all : ${NAME}
+all : $(NAME)
 
-${NAME} : ${OBJS}
-	@${CC} ${CFLAGS} -o $@ $^
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) -o $@
 	@echo "$(COLOR)$(NAME) created!✅"
 	
 %.o : %.c
@@ -35,7 +35,7 @@ clean :
 	@echo "$(NAME) clean"
 
 fclean : clean
-	@rm -rf ${NAME}
+	@rm -rf $(NAME)
 	@echo "$(NAME) fclean"
 
 re : 

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/12 16:58:20 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:41:12 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	mutex_setting(t_pthread *pthread, int x)
 	{
 		pthread_mutex_lock(&pthread->all->forks[(pthread->i) \
 				% pthread->all->n_philo]);
-		out(pthread, "taken a fork", 1);
+		out(pthread, "\033[31mtaken a fork\033[0m", 1);
 		pthread_mutex_lock(&pthread->all->forks[(pthread->i + 1) \
 				% pthread->all->n_philo]);
-		out(pthread, "taken a fork", 1);
+		out(pthread, "\033[31mtaken a fork\033[0m", 1);
 	}
 	else
 	{
@@ -42,13 +42,14 @@ void	*func(void *param)
 	while (1)
 	{
 		mutex_setting(pthread, 1);
-		out(pthread, "is eating", 1);
+		out(pthread, "\033[0;33mis eating\033[0m", 1);
 		ft_usleep(pthread->all->time_to_eat);
 		mutex_setting(pthread, 0);
 		pthread->time = get_time();
-		out(pthread, "is sleeping", 1);
+		out(pthread, "\033[0;35mis sleeping\033[0m", 1);
 		ft_usleep(pthread->all->time_to_sleep);
-		out(pthread, "is thinking", 1);
+		out(pthread, "\033[0;36mis thinking\033[0m", 1);
+		pthread->n_eat += 1;
 	}
 }
 

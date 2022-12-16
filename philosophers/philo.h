@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/12 17:02:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:57:37 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_thread
 {
 	pthread_t		thread;
 	int				i;
+	int				n_eat;
 	long long		time;
 	struct s_philo	*all;
 }	t_pthread;
@@ -48,6 +49,7 @@ int			ft_atoi(const char *str);
 int			check_index(int ac, char **av);
 void		ft_usleep(long time);
 void		out(t_pthread *pthread, char *str, int x);
+int			check_eat(int *x, t_pthread *pthread);
 
 /* init */
 int			setting_init(t_philo *philo, char **av);

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/12 14:29:52 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:56:07 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	check_index(int ac, char **av)
 	while (++i < ac)
 	{
 		if (ft_atoi(av[i]) < 1 || ft_atoi(av[i]) > 2147483647)
-			return (error("argument_size error", 2));
+			return (error("parsing error", 2));
 	}
 	return (1);
 }
@@ -66,9 +66,21 @@ void	ft_usleep(long time)
 void	out(t_pthread *pthread, char *str, int x)
 {
 	pthread_mutex_lock(&pthread->all->mutex);
-	if (x)
-		pthread_mutex_unlock(&pthread->all->mutex);
 	if (str)
 		printf("%lld philo %d %s\n", (get_time() - pthread->all->time) \
 			, pthread->i, str);
+	if (x)
+		pthread_mutex_unlock(&pthread->all->mutex);
+}
+
+int	check_eat(int *x, t_pthread *pthread)
+{
+	if (pthread->n_eat >= pthread->all->n_eat)
+		*x += 1;
+	if (*x == pthread->all->n_philo)
+	{
+		out(pthread, NULL, 0);
+		return (0);
+	}
+	return (1);
 }
