@@ -6,12 +6,13 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 17:10:27 by hyerimki          #+#    #+#              #
-#    Updated: 2022/12/16 19:07:22 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/12/21 18:30:51 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror 
+# -g -fsanitize=thread
 SRC = init.c \
 		main.c\
 		threads.c\

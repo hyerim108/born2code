@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/14 18:57:37 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:45:30 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_thread
 {
 	pthread_t		thread;
 	int				i;
+	int				left;
+	int				rignt;
 	int				n_eat;
 	long long		time;
 	struct s_philo	*all;
@@ -40,6 +42,8 @@ typedef struct s_philo
 	pthread_mutex_t	mutex;
 	pthread_mutex_t	*forks;
 }	t_philo;
+
+int	ft_check_eat(int *eat);
 
 /* main */
 int			error(char *str, int err);

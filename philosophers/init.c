@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:42:08 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/16 18:56:50 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:18:26 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	init_philo(t_philo *philo)
 		pthread_mutex_init(&philo->forks[i], NULL);
 		philo->philos[i].i = i + 1;
 		philo->philos[i].n_eat = 0;
+		philo->philos[i].left = i;
+		philo->philos[i].rignt = (i + 1) % philo->n_philo;
 		philo->philos[i].time = philo->time;
 		philo->philos[i].all = philo;
 	}
@@ -70,7 +72,6 @@ void	*ft_die(t_philo *philo)
 {
 	int	i;
 	int x;
-
 	x = 0;
 	i = 0;
 	while (1)
@@ -82,8 +83,12 @@ void	*ft_die(t_philo *philo)
 			x = 0;
 		}
 		if (philo->n_eat)
-			if (!check_eat(&x, &philo->philos[i]))
-				return (NULL);
+		{
+			if (ft_check_eat(&philo->n_eat))
+				break;
+		}
+			// if (!check_eat(&x, &philo->philos[i]))
+			// 	break ;
 		if ((get_time() - philo->philos[i].time) > philo->time_to_die)
 		{
 			out(&philo->philos[i], "died", 0);
@@ -92,4 +97,13 @@ void	*ft_die(t_philo *philo)
 		i++;
 	}
 	return (NULL);
+}
+int	ft_check_eat(int *eat)
+{
+	if (*eat == -1)
+		return (1);
+	else if (*eat == 0)
+		return (0);
+	else
+		return (--(*eat) + 1);
 }

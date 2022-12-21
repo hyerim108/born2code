@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/16 18:41:12 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/21 18:30:22 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ void	ft_thread(t_philo *philo)
 	i = -1;
 	pthread_mutex_init(&philo->mutex, NULL);
 	while (++i < philo->n_philo)
+	{
 		pthread_create(&philo->philos[i].thread, NULL, func, &philo->philos[i]);
-	i = -1;
-	while (++i < philo->n_philo)
 		pthread_detach(philo->philos[i].thread);
+	}
+	// i = -1;
+	// while (++i < philo->n_philo)
+	// 	pthread_detach(philo->philos[i].thread);
 }
