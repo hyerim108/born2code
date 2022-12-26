@@ -6,19 +6,17 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 17:10:27 by hyerimki          #+#    #+#              #
-#    Updated: 2022/12/26 18:08:36 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/12/21 18:30:51 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 # -g -fsanitize=thread
-SRC = main.c \
-	threads.c\
-	util.c \
-	action.c \
-	message.c \
-	time.c 
+SRC = init.c \
+		main.c\
+		threads.c\
+		util.c
 OBJS = $(SRC:.c=.o)
 
 COLOR = \033[33m

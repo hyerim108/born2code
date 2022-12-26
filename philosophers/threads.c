@@ -6,65 +6,66 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/21 18:30:22 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:08:14 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	mutex_setting(t_pthread *pthread, int x)
+static void	*monitor(void *phi)
 {
-	if (x)
-	{
-		pthread_mutex_lock(&pthread->all->forks[(pthread->i) \
-				% pthread->all->n_philo]);
-		out(pthread, "\033[31mtaken a fork\033[0m", 1);
-		pthread_mutex_lock(&pthread->all->forks[(pthread->i + 1) \
-				% pthread->all->n_philo]);
-		out(pthread, "\033[31mtaken a fork\033[0m", 1);
-	}
-	else
-	{
-		pthread_mutex_unlock(&pthread->all->forks[(pthread->i) \
-				% pthread->all->n_philo]);
-		pthread_mutex_unlock(&pthread->all->forks[(pthread->i + 1) \
-				% pthread->all->n_philo]);
-	}
-}
+	t_philo			*t;
+	struct timeval	ctime;
 
-void	*func(void *param)
-{
-	t_pthread	*pthread;
-
-	pthread = param;
-	if (pthread->i % 2)
-		ft_usleep(pthread->all->time_to_eat / 2);
+	t = (t_philo *)phi;
 	while (1)
 	{
-		mutex_setting(pthread, 1);
-		out(pthread, "\033[0;33mis eating\033[0m", 1);
-		ft_usleep(pthread->all->time_to_eat);
-		mutex_setting(pthread, 0);
-		pthread->time = get_time();
-		out(pthread, "\033[0;35mis sleeping\033[0m", 1);
-		ft_usleep(pthread->all->time_to_sleep);
-		out(pthread, "\033[0;36mis thinking\033[0m", 1);
-		pthread->n_eat += 1;
+		gettimeofday(&ctime, NULL);
+		if (!t->is_eating && get_time(t->max) < get_time(ctime))
+		{
+			message(t, TYPE_DIED, 0);
+			pthread_mutex_unlock(&t->all->dead_m);
+			return ((void *) 0);
+		}
+		usleep(1000);
 	}
+	return ((void *) 1);
 }
 
-void	ft_thread(t_philo *philo)
+static void	*func(void *phi)
 {
-	int	i;
+	t_philo		*t;
+	pthread_t	id;
+
+	t = (t_philo *)phi;
+	t->last_eat = t->all->start; //마지막으로 먹은시간을 저장
+	t->max = sum_time(t->last_eat, t->all->time_to_die * 1000);
+	pthread_create(&id, NULL, &monitor, phi);
+	pthread_detach(id);
+	while (1)
+	{
+		hold_fork(t);
+		eat(t);
+		put_fork(t);
+	}
+	return (NULL);
+}
+
+int	init_threads(t_init *init)
+{
+	int			i;
+	void		*phi;
+	pthread_t	id;
 
 	i = -1;
-	pthread_mutex_init(&philo->mutex, NULL);
-	while (++i < philo->n_philo)
+	gettimeofday(&(init->start), NULL);	//현재시간을 저장해둔다
+	while (++i < init->n_philo)
 	{
-		pthread_create(&philo->philos[i].thread, NULL, func, &philo->philos[i]);
-		pthread_detach(philo->philos[i].thread);
+		phi = (void *)(&init->philos[i]);
+		if (pthread_create(&init->philos[i].id, NULL, func, phi))
+			return (0);
+		pthread_detach(init->philos[i].id);
+		usleep(100);
 	}
-	// i = -1;
-	// while (++i < philo->n_philo)
-	// 	pthread_detach(philo->philos[i].thread);
+	return (1);
 }

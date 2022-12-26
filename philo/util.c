@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/26 18:02:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:40:00 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ int	check_index(int ac, char **av)
 			return (error("parsing error", 2));
 	}
 	return (1);
-}
-
-int	error(char *str, int err)
-{
-	printf("%s", str);
-	return (err);
 }
 
 int	ft_atoi(const char *str)
@@ -60,39 +54,33 @@ int	ft_atoi(const char *str)
 	return (result * n);
 }
 
-static void	ft_putendl_fd(char *s, int fd)
+void	ft_usleep(long time)
 {
-	int	i;
+	long	current;
 
-	i = 0;
-	if (fd < 0 || !s)
-		return ;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
+	current = get_time();
+	while (get_time() - current < time)
+		usleep(100);
 }
 
-int	ft_error(t_init *init, char *str)
+void	out(t_pthread *pthread, char *str, int x)
 {
-	int	i;
-
-	i = 0;
-	if (init)
-	{
-		pthread_mutex_destroy(&init->dead_m);
-		pthread_mutex_destroy(&init->write_m);
-		while (i < init->n_philo)
-		{
-			pthread_mutex_destroy(&init->fork_m[i]);
-			i++;
-		}
-		free(init->fork_m);
-		free(init);
-	}
+	pthread_mutex_lock(&pthread->all->mutex);
 	if (str)
-		ft_putendl_fd(str, 1);
-	return (0);
+		printf("%lld philo %d %s\n", (get_time() - pthread->all->time) \
+			, pthread->i, str);
+	if (x)
+		pthread_mutex_unlock(&pthread->all->mutex);
+}
+
+int	check_eat(int *x, t_pthread *pthread)
+{
+	if (pthread->n_eat >= pthread->all->n_eat)
+		*x += 1;
+	if (*x == pthread->all->n_philo)
+	{
+		out(pthread, NULL, 0);
+		return (0);
+	}
+	return (1);
 }
