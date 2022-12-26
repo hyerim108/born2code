@@ -6,11 +6,38 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/26 18:08:14 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:52:55 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	*monitor_count(void *phi)
+{
+	t_init			*p;
+	int				i;
+
+	p = (t_init *)phi;
+	while (1)
+	{
+		i = 0;
+		while (i < p->n_philo)
+		{
+			if (p->philos[i].eat_count >= p->n_eat)
+				i++;
+			else
+				break ;
+		}
+		if (i == p->n_philo)
+		{
+			message(&p->philos[0], TYPE_OVER, 0);
+			pthread_mutex_unlock(&p->dead_m);
+			break ;
+		}
+		usleep(1000);
+	}
+	return (NULL);
+}
 
 static void	*monitor(void *phi)
 {
@@ -58,7 +85,12 @@ int	init_threads(t_init *init)
 	pthread_t	id;
 
 	i = -1;
-	gettimeofday(&(init->start), NULL);	//현재시간을 저장해둔다
+	gettimeofday(&(init->start), NULL);
+	if (init->n_eat)
+	{
+		pthread_create(&id, NULL, monitor_count, (void *)init);
+		pthread_detach(id);
+	}
 	while (++i < init->n_philo)
 	{
 		phi = (void *)(&init->philos[i]);
