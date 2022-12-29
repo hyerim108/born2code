@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/26 18:02:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/29 13:37:10 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ int	ft_error(t_init *init, char *str)
 	i = 0;
 	if (init)
 	{
-		pthread_mutex_destroy(&init->dead_m);
-		pthread_mutex_destroy(&init->write_m);
+		pthread_mutex_destroy(&init->dead_t);
+		pthread_mutex_destroy(&init->write_t);
 		while (i < init->n_philo)
 		{
-			pthread_mutex_destroy(&init->fork_m[i]);
+			pthread_mutex_destroy(&init->fork[i]);
 			i++;
 		}
-		free(init->fork_m);
+		free(init->fork);
 		free(init);
 	}
 	if (str)

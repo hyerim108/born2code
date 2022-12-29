@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:24 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/26 17:59:58 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/29 13:36:46 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static int	init_mutex(t_init *init)
 	int		i;
 
 	i = -1;
-	pthread_mutex_init(&init->write_m, NULL);
-	pthread_mutex_init(&init->dead_m, NULL);
-	pthread_mutex_lock(&init->dead_m);
-	init->fork_m = malloc(sizeof(pthread_mutex_t) * init->n_philo);
-	if (!init->fork_m)
+	pthread_mutex_init(&init->write_t, NULL);
+	pthread_mutex_init(&init->dead_t, NULL);
+	pthread_mutex_lock(&init->dead_t);
+	init->fork = malloc(sizeof(pthread_mutex_t) * init->n_philo);
+	if (!init->fork)
 		return (0);
 	while (++i < init->n_philo)
-		pthread_mutex_init(&init->fork_m[i], NULL);
+		pthread_mutex_init(&init->fork[i], NULL);
 	return (1);
 }
 
@@ -46,7 +46,7 @@ static int	init(t_init *init)
 
 	i = -1;
 	
-	init->fork_m = NULL;
+	init->fork = NULL;
 	init->philos = malloc(sizeof(t_philo) * init->n_philo);
 	if (!init->philos)
 		return (0);
@@ -72,8 +72,8 @@ int	main(int ac, char **av)
 	if (!setting(av, initiz) || !init(initiz))
 		return (ft_error(NULL, "Memory allocation error\n"));
 	if (!init_threads(initiz))
-		return (ft_error(initiz, "Unexpected error\n"));
-	pthread_mutex_lock(&initiz->dead_m);
+		return (ft_error(initiz, "thread create error\n"));
+	pthread_mutex_lock(&initiz->dead_t);
 	ft_error(initiz, NULL);
 	return (0);
 }

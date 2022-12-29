@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/26 18:24:21 by hyerimki         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:33:07 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@ void	message(t_philo *p, int a, int b)
 {
 	int		ret;
 
-	pthread_mutex_lock(&p->all->write_m);
-	ret = takeoff_time(p->all->start);
-	printf("%s%d %d ", off, ret / 1000, p->n);
-	if (a == TYPE_EAT)
+	pthread_mutex_lock(&p->all->write_t);
+	printf("%s%lld %d ", WHI, get_time() - p->time, p->n);
+	if (a == EAT)
 		printf("%sis eating\n", CYAN);
-	if (a == TYPE_SLEEP)
+	if (a == SLEEP)
 		printf("%sis sleeping\n", PEO);
-	if (a == TYPE_FORK)
+	if (a == FORK)
 		printf("%shas taken a fork\n", RED);
-	if (a == TYPE_THINK)
+	if (a == THINK)
 		printf("%sis thinking\n", YEL);
-	if (a == TYPE_DIED)
+	if (a == DIED)
 		printf("%shas died\n", RED);
-	if (a == TYPE_OVER)
+	if (a == OVER)
 		printf("%smust eat count reached\n", RED);
 	if (b)
-		pthread_mutex_unlock(&p->all->write_m);
+		pthread_mutex_unlock(&p->all->write_t);
 }

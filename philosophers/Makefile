@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 17:10:27 by hyerimki          #+#    #+#              #
-#    Updated: 2022/12/26 19:46:43 by hyerimki         ###   ########.fr        #
+#    Updated: 2022/12/29 15:10:57 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ SRC = main.c \
 	threads.c\
 	util.c \
 	action.c \
-	message.c \
-	time.c 
+	message.c 
 OBJS = $(SRC:.c=.o)
 
 COLOR = \033[33m
