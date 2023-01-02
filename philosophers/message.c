@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 18:33:07 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:13:31 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	message(t_philo *p, int a, int b)
 	int		ret;
 
 	pthread_mutex_lock(&p->all->write_t);
-	printf("%s%lld %d ", WHI, get_time() - p->time, p->n);
+	printf("%s%lld %d ", WHI, get_time() - p->all->main_start, p->n);
 	if (a == EAT)
 		printf("%sis eating\n", CYAN);
 	if (a == SLEEP)

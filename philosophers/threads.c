@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 18:34:10 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:13:00 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static void	*monitor(void *p)
 	philo = (t_philo *)p;
 	while (1)
 	{
-		if (!philo->is_eating && get_time()- philo->time > philo->all->time_to_die)
+		if (!philo->is_eating && \
+				get_time() - philo->time > philo->all->time_to_die)
 		{
 			message(philo, DIED, 0);
 			pthread_mutex_unlock(&philo->all->dead_t);
@@ -61,7 +62,7 @@ static void	*func(void *t)
 {
 	t_philo		*philo;
 	pthread_t	id;
-	
+
 	philo = (t_philo *)t;
 	philo->time = philo->all->main_start;
 	pthread_create(&id, NULL, &monitor, philo);

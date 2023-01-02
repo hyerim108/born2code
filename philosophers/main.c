@@ -6,11 +6,12 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:24 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 13:36:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:14:36 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
 static int	init_mutex(t_init *init)
 {
 	int		i;
@@ -27,7 +28,7 @@ static int	init_mutex(t_init *init)
 	return (1);
 }
 
-static int setting(char **av, t_init *init)
+static int	setting(char **av, t_init *init)
 {
 	init->n_philo = ft_atoi(av[1]);
 	init->time_to_die = ft_atoi(av[2]);
@@ -35,8 +36,6 @@ static int setting(char **av, t_init *init)
 	init->time_to_sleep = ft_atoi(av[4]);
 	if (av[5])
 		init->n_eat = ft_atoi(av[5]);
-	else
-		init->n_eat = 0;
 	return (1);
 }
 
@@ -45,7 +44,6 @@ static int	init(t_init *init)
 	int		i;
 
 	i = -1;
-	
 	init->fork = NULL;
 	init->philos = malloc(sizeof(t_philo) * init->n_philo);
 	if (!init->philos)

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:16 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 13:37:10 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:12:21 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	check_index(int ac, char **av)
 	while (++i < ac)
 	{
 		if (ft_atoi(av[i]) < 1 || ft_atoi(av[i]) > 2147483647)
-			return (error("parsing error", 2));
+			return (0);
 	}
 	return (1);
 }
@@ -60,21 +60,6 @@ int	ft_atoi(const char *str)
 	return (result * n);
 }
 
-static void	ft_putendl_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	if (fd < 0 || !s)
-		return ;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
-}
-
 int	ft_error(t_init *init, char *str)
 {
 	int	i;
@@ -93,6 +78,19 @@ int	ft_error(t_init *init, char *str)
 		free(init);
 	}
 	if (str)
-		ft_putendl_fd(str, 1);
+		error(str, 1);
 	return (0);
+}
+
+void	ft_sleep(long long time)
+{
+	long long	t;
+
+	t = get_time();
+	while (1)
+	{
+		if (get_time() - t >= time)
+			break ;
+		usleep(300);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:42:08 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 15:27:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:15:25 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	eat(t_philo *p)
 	p->is_eating = 1;
 	message(p, EAT, 1);
 	p->eat_count++;
-	usleep(p->all->time_to_eat * 1000);
+	p->time = get_time();
+	ft_sleep(p->all->time_to_eat);
 	p->is_eating = 0;
 }
 
@@ -34,7 +35,7 @@ void	put_fork(t_philo *p)
 	pthread_mutex_unlock(&p->all->fork[p->lfork]);
 	pthread_mutex_unlock(&p->all->fork[p->rfork]);
 	message(p, SLEEP, 1);
-	usleep(p->all->time_to_sleep * 1000);
+	ft_sleep(p->all->time_to_eat);
 	message(p, THINK, 1);
 }
 

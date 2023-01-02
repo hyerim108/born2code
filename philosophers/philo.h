@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/12/29 18:18:41 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:05:23 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int					ft_error(t_init *init, char *str);
 int					ft_strlen(char *str);
 int					check_index(int ac, char **av);
 int					error(char *str, int err);
-
+void				ft_sleep(long long time);
 #endif
