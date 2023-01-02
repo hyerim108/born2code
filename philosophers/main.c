@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:43:24 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/02 15:14:36 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:24:44 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	init(t_init *init)
 		return (0);
 	while (++i < init->n_philo)
 	{
-		init->philos[i].n = i;
+		init->philos[i].n = i + 1;
 		init->philos[i].is_eating = 0;
 		init->philos[i].lfork = i;
 		init->philos[i].rfork = (i + 1) % init->n_philo;
