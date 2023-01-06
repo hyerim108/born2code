@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 15:51:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/06 18:13:51 by hyerimki         ###   ########.fr       */
+/*   Created: 2023/01/06 17:49:27 by hyerimki          #+#    #+#             */
+/*   Updated: 2023/01/06 18:00:02 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	error(char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	printf("%s\n", str);
-	exit(1);
-}
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-int	main(int ac, char **av)
-{
-	t_param	p;
-
-	if (ac != 2)
-		error("argument Error");
-	p.mlx = mlx_init();
-	build_map(av[1], &p);
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (str1[i] != '\0' || str2[i] != '\0')
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
 	return (0);
 }
