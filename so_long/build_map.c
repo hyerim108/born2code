@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:54:06 by hyerimki          #+#    #+#             */
-/*   Updated: 2022/09/29 15:03:54 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:53:40 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	setting_img(t_param *p)
 	int	ih;
 
 	p->img.grass = mlx_xpm_file_to_image(p->mlx, "./img/grass.xpm", &iw, &ih);
+	printf("%d\n", iw);
 	p->img.wall = mlx_xpm_file_to_image(p->mlx, "./img/wall.xpm", &iw, &ih);
 	p->img.cake = mlx_xpm_file_to_image(p->mlx, "./img/cake.xpm", &iw, &ih);
 	p->img.r_w = mlx_xpm_file_to_image(p->mlx, "./img/rabbit_w.xpm", &iw, &ih);

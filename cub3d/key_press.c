@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setting.c                                          :+:      :+:    :+:   */
+/*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 17:46:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 20:32:54 by hyerimki         ###   ########.fr       */
+/*   Created: 2023/01/12 12:24:09 by hyerimki          #+#    #+#             */
+/*   Updated: 2023/01/12 12:25:20 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	build_map(char *av, t_param *p)
+int	key_press(int keycode, t_param *param)
 {
-	if (ft_strcmp(".cub", &av[ft_strlen(&av[1]) - 3]) != 0)
-		error("Not *.cub file");
-	initialization_param(&p->map, av);
-	initialization_image(&p->img);
-	initialization_move(&p->move);
-	map_parshing(av, p);
+    // if (keycode == KEY_A)
+	// 	pushkey_a(keycode, param);
+	// else if (keycode == KEY_D)
+	// 	pushkey_d(keycode, param);
+	// else if (keycode == KEY_W)
+	// 	pushkey_w(keycode, param);
+	// else if (keycode == KEY_S)
+	// 	pushkey_s(keycode, param);
+	// else 
+	if (keycode == KEY_ESC)
+		exit(0);
+	return (0);
 }
