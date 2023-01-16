@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 15:50:53 by hyerimki          #+#    #+#              #
-#    Updated: 2023/01/16 12:43:17 by hyerimki         ###   ########.fr        #
+#    Updated: 2023/01/16 17:24:25 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = sources/main.c sources/setting.c sources/init.c sources/parsing.c \
 	sources/color.c sources/map.c sources/check.c\
 	sources/key_action.c sources/key_press.c sources/loop.c \
 	sources/paint.c sources/go.c sources/raycasting.c\
+	sources/perp_cover.c \
 	sources/init_ray.c sources/dda.c\
 	gnl/get_next_line_utils.c \
 	gnl/get_next_line.c \

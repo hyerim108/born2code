@@ -3,7 +3,7 @@ SO ./img/N_night.xpm
 WE ./img/S_Day.xpm
 EA ./img/W_Day.xpm
 
-F 220,200,0
+F 220,200,200
 C 225,30,0
 
         1111111111111111111111111

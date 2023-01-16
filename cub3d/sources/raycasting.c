@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:57:17 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 13:19:42 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:42:11 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void    raycasting(t_param *p)
     {
         initialization_ray(p, &p->player, &p->ray, x);
         dda_algolizm(&p->ray, &p->map, &p->player);
+        perp_cover(&p->ray, &p->player);
+        line_height(&p->ray, &p->player);
+        setting_buffer(&p->ray, &p->img, x);
     }
     return ;
 }

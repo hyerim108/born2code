@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 12:54:24 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:52:34 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,19 @@ typedef struct s_ray
 	double	ray_dirY;
 	double	deltaDistX;
 	double	deltaDistY;
-
 	double sideDistX;
 	double sideDistY;
-	double stepX;
-	double stepY;
-	double side;
 	double perpwallDist;
+	double	texPos;
+	double	step;
+	int stepX;
+	int stepY;
+	int side;
+	int texX;
+	int texY;
+	int	drawEnd;
+	int	drawStart;
+	int	lineHeight;
 }	t_ray;
 
 typedef	struct s_color
@@ -133,6 +139,7 @@ void	error(char *str);
 
 /* setting */
 void	build_map(char *av, t_param *p);
+void	setting_buffer(t_ray *ray, t_image *img, int x);
 
 /* color.c */
 void    parsing_color_check(t_map *map, char *line, char c);
@@ -165,6 +172,7 @@ int		setting_loop(t_param *p);
 
 /* paint */
 void    pating_floor_celling(t_param *p, t_map *map);
+void    paint_img(t_param *p, t_image *img);
 
 /* go */
 void    go(t_param *p);
@@ -177,5 +185,9 @@ void    initialization_ray(t_param *p, t_player *player, t_ray *ray ,int x);
 
 /* dda */
 void    dda_algolizm(t_ray *ray, t_map *map, t_player *p);
+
+/* perp_cover.c */
+void    perp_cover(t_ray *ray, t_player *p);
+void    line_height(t_ray *ray, t_player *p);
 
 #endif
