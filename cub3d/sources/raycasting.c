@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 14:23:58 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/12 14:30:27 by hyerimki         ###   ########.fr       */
+/*   Created: 2023/01/15 14:57:17 by hyerimki          #+#    #+#             */
+/*   Updated: 2023/01/16 13:19:42 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
-int setting_loop(t_param *p)
+void    raycasting(t_param *p)
 {
-    t_map   map;
-    pating_floor_celling(p, &map);
-    return (0);
+    int x;
+
+    x = -1;
+    while (++x < WIDTH)
+    {
+        initialization_ray(p, &p->player, &p->ray, x);
+        dda_algolizm(&p->ray, &p->map, &p->player);
+    }
+    return ;
 }

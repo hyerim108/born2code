@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 18:53:31 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/11 15:16:57 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:40:54 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	setting_color(char **line)
 {

@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 20:44:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:40:41 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	set_direct(t_player *p, char c)
 {

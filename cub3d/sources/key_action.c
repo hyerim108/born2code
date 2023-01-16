@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_press.c                                        :+:      :+:    :+:   */
+/*   key_action.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:24:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/12 12:25:20 by hyerimki         ###   ########.fr       */
+/*   Created: 2023/01/12 12:13:53 by hyerimki          #+#    #+#             */
+/*   Updated: 2023/01/16 12:41:52 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
-int	key_press(int keycode, t_param *param)
+int	game_end(t_param *p)
 {
-    // if (keycode == KEY_A)
-	// 	pushkey_a(keycode, param);
-	// else if (keycode == KEY_D)
-	// 	pushkey_d(keycode, param);
-	// else if (keycode == KEY_W)
-	// 	pushkey_w(keycode, param);
-	// else if (keycode == KEY_S)
-	// 	pushkey_s(keycode, param);
-	// else 
-	if (keycode == KEY_ESC)
-		exit(0);
-	return (0);
+	mlx_destroy_window(p->mlx, p->win);
+	exit(0);
 }

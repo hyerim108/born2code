@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:28:21 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/12 14:42:58 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:42:25 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void    pating_floor_celling(t_param *p, t_map *map)
 {

@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:46:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 20:32:54 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:42:21 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	build_map(char *av, t_param *p)
 {

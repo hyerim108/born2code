@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_action.c                                       :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:13:53 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/12 14:26:45 by hyerimki         ###   ########.fr       */
+/*   Created: 2023/01/12 14:23:58 by hyerimki          #+#    #+#             */
+/*   Updated: 2023/01/16 13:19:29 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
-int	game_end(t_param *p)
+int setting_loop(t_param *p)
 {
-	mlx_destroy_window(p->mlx, p->win);
-	exit(0);
+    pating_floor_celling(p, &p->map);
+    raycasting(p);
+    return (0);
 }

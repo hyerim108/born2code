@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:16:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 19:04:11 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:42:24 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	*put_parsing(char *line)
 {

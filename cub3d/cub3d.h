@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/15 13:38:50 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:54:24 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./mlx/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <math.h>
 # include "gnl/get_next_line.h"
 # include "lib/lib.h"
 
@@ -36,6 +37,23 @@
 # define HEIGHT 720
 # define BIT_W 64
 # define BIT_H 64
+
+typedef struct s_ray
+{
+	int		mapX;
+	int		mapY;
+	double	ray_dirX;
+	double	ray_dirY;
+	double	deltaDistX;
+	double	deltaDistY;
+
+	double sideDistX;
+	double sideDistY;
+	double stepX;
+	double stepY;
+	double side;
+	double perpwallDist;
+}	t_ray;
 
 typedef	struct s_color
 {
@@ -107,6 +125,7 @@ typedef struct s_param
 	t_player	player;
 	t_image		img;
 	t_move		move;
+	t_ray		ray;
 }	t_param;
 
 /* main */
@@ -149,5 +168,14 @@ void    pating_floor_celling(t_param *p, t_map *map);
 
 /* go */
 void    go(t_param *p);
+
+/* raycasting */
+void    raycasting(t_param *p);
+
+/* init_ray */
+void    initialization_ray(t_param *p, t_player *player, t_ray *ray ,int x);
+
+/* dda */
+void    dda_algolizm(t_ray *ray, t_map *map, t_player *p);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:51:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 16:48:25 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:19:11 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	error(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/12 17:31:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:40:51 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	player_location_setting(t_player *play, char **str, int size)
 {

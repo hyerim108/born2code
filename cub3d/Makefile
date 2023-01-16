@@ -6,15 +6,18 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 15:50:53 by hyerimki          #+#    #+#              #
-#    Updated: 2023/01/15 13:36:09 by hyerimki         ###   ########.fr        #
+#    Updated: 2023/01/16 12:43:17 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-SRC = main.c setting.c init.c parsing.c color.c map.c check.c\
-	key_action.c key_press.c loop.c paint.c go.c\
+SRC = sources/main.c sources/setting.c sources/init.c sources/parsing.c \
+	sources/color.c sources/map.c sources/check.c\
+	sources/key_action.c sources/key_press.c sources/loop.c \
+	sources/paint.c sources/go.c sources/raycasting.c\
+	sources/init_ray.c sources/dda.c\
 	gnl/get_next_line_utils.c \
 	gnl/get_next_line.c \
 	lib/utils.c lib/utils2.c

@@ -6,11 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/13 20:44:17 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:41:00 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void    fill_img(t_image *img, int num)
 {
