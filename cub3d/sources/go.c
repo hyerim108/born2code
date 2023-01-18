@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 12:41:00 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:12:26 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void    go(t_param *p)
 {
     loading(&p->img);
     setting_image(p, &p->img, &p->map);
-    player_init(&p->player);
     p->img.img_ptr = mlx_new_image(p->mlx, WIDTH, HEIGHT);
     p->img.data = (int *)mlx_get_data_addr(p->img.img_ptr, &p->img.bits, \
         &p->img.size, &p->img.endian);
+    player_init(&p->player);
 }

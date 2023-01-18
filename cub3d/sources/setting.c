@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:46:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 18:30:25 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:14:13 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void	setting_buffer(t_ray *ray, t_image *img, int x)
 {
 	int	color;
-	int y;
+	int	i;
 
-	y = ray->drawStart;
-	while (y < ray->drawEnd)
+	i = ray->drawStart;
+	while (i < ray->drawEnd)
 	{
-		ray->texY = (int)ray->texPos & 63;
+		ray->texY = (int)ray->texPos & BIT_H - 1;
 		if (ray->side == 0)
 		{
 			if (ray->ray_dirX >= 0)
@@ -35,9 +35,9 @@ void	setting_buffer(t_ray *ray, t_image *img, int x)
 			else
 				color = img->img_arr[4][64 * ray->texY + ray->texX];
 		}
-		img->arr[y][x] = color;
+		img->arr[i][x] = color;
 		ray->texPos += ray->step;
-		y++;
+		i++;
 	}
 }
 

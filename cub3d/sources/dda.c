@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 17:26:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 17:41:30 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:56:34 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    dda_algolizm(t_ray *ray, t_map *map, t_player *p)
             hit = 1;
     }
     if (ray->side == 0) 
-        ray->perpwallDist = (ray->mapX - p->pocus_x + (1 - ray->stepX) / 2);
+        ray->perpwallDist = ray->sideDistX - ray->deltaDistX;
     else
-        ray->perpwallDist = (ray->mapY - p->pocus_y + (1 - ray->stepY) / 2);
+        ray->perpwallDist = ray->sideDistY - ray->deltaDistY;
 }

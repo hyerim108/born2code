@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 17:52:34 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:39:19 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 # define KEY_E 14
 # define KEY_R 15
 
-# define WIDTH 970
-# define HEIGHT 720
+# define WIDTH 640
+# define HEIGHT 480
 # define BIT_W 64
 # define BIT_H 64
 

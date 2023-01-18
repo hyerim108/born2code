@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:00:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 15:25:08 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:01:48 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void    initialization_ray(t_param *p, t_player *player, t_ray *ray ,int x)
 {
     double  camera = 2 * x / (double)WIDTH - 1; // for 문의 x값(화면의 수직선)이 위치가 카메라 평면에 차지하는
     
+    if ((WIDTH - 1) == x)
+        camera = 1.0;
     ray->ray_dirX = player->dirX + player->planeX * camera; //ray_dir은 광선의 벡터방향
     ray->ray_dirY = player->dirY + player->planeY * camera;
-    ray->deltaDistX = fabs(1/ ray->ray_dirX);
+    ray->deltaDistX = fabs(1 / ray->ray_dirX);
     ray->deltaDistY = fabs(1 / ray->ray_dirY);
     ray->mapX = (int)player->pocus_x;
     ray->mapY = (int)player->pocus_y;
