@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 15:35:51 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:40:48 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	map_condition(t_map *map, char **str)
 		}
         i++;
 	}
-	
 }
 
 void	player_location_setting(t_player *play, char **str, int size)

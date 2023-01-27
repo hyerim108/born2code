@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 17:56:57 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:45:47 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	map_copy(int fd, t_map *map, char **temp)
 		line = get_next_line(fd);
 		str = ft_strd_up(line);
 		temp[i] = str;
+		free(line);
 	}
 }
 

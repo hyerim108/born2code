@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:24:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 15:23:42 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:24:09 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ int key_release(int keycode, t_move *move)
 	else if (keycode == KEY_S)
 		move->s = 0;
 	return (0);
+}
+
+int	game_end(t_param *p)
+{
+	mlx_destroy_window(p->mlx, p->win);
+	exit(0);
 }

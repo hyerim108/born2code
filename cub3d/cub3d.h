@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 15:11:36 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:17:41 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,11 +162,12 @@ void    map_condition(t_map *map, char **str);
 void	player_location_setting(t_player *play, char **str, int size);
 
 /* key_action */
-int		game_end(t_param *p);
+int 	key(t_move *move, t_player *play, t_map *map);
 
 /* key_press*/
 int		key_press(int keycode, t_move *move);
 int 	key_release(int keycode, t_move *move);
+int		game_end(t_param *p);
 
 /* loop */
 int		setting_loop(t_param *p);

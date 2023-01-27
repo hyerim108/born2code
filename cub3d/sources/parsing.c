@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:16:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 16:50:12 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:02:23 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	map_parshing(char *av, t_param *p)
 		if (map_parshing_check(&p->map, &p->player, line) == 0)
 			error("map parshing Error");
 		line = get_next_line(fd);
+		free(line);
 	}
     if (p->map.map_line == 0)
         error("no map");

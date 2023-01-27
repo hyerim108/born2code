@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:46:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 19:24:41 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:08:50 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	setting_buffer(t_ray *ray, t_image *img, int x)
 		}
 		else if (ray->side == 1)
 		{
-			if (ray->ray_dirY >= 0) //서
-				color = img->img_arr[4][64 * ray->texY + ray->texX];
-			else //동
+			if (ray->ray_dirY < 0) //서
 				color = img->img_arr[3][64 * ray->texY + ray->texX];
+			else //동
+				color = img->img_arr[4][64 * ray->texY + ray->texX];
 		}
 		img->arr[i][x] = color;
 		ray->texPos += ray->step;
