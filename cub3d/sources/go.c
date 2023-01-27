@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 18:57:11 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 12:58:06 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void    loading(t_image *img)
         img->img_arr[i] = (int *)malloc(sizeof(int) * BIT_H * BIT_W);
         if (!img->img_arr[i])
             error("img_err[i] malloc Error");
-        ft_memset(img->img_arr[i], 0, sizeof(int) * BIT_H * BIT_W);
     }
 }
 

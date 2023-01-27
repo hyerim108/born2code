@@ -1,10 +1,12 @@
-NO ./img/NN.xpm
-SO ./img/SS.xpm
 WE ./img/WW.xpm
 EA ./img/EE.xpm
+NO ./img/NN.xpm
+SO ./img/SS.xpm
 
-C 153,219,233
+
 F 220,   191, 151
+C 153,219,233
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:51:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 14:45:56 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:12:44 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	error(char *str)
 {
+	printf("error\n");
 	printf("%s\n", str);
 	exit(1);
 }
@@ -28,7 +29,8 @@ int	main(int ac, char **av)
 	p.mlx = mlx_init();
 	p.win = mlx_new_window(p.mlx, WIDTH, HEIGHT, "CUB3D");
 	go(&p);
-	mlx_hook(p.win, 3, 0, &key_press, &p);
+	mlx_hook(p.win, 2, 0, &key_press, &p.move);
+	mlx_hook(p.win, 3, 0, &key_release, &p.move);
 	mlx_hook(p.win, 17, 0, &game_end, &p);
 	mlx_loop_hook(p.mlx, &setting_loop, &p);
 	mlx_loop(p.mlx);
