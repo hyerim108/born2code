@@ -6,18 +6,18 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 17:26:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/18 16:56:34 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:20:26 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void    dda_algolizm(t_ray *ray, t_map *map, t_player *p)
+void    dda_algolizm(t_ray *ray, t_map *map)
 {
     int hit;
     
     hit = 0;
-    while (hit == 0)
+    while (hit != 1)
     {
         if (ray->sideDistX < ray->sideDistY)
         {

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 18:30:15 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:56:57 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	set_direct(t_player *p, char c)
 {
 	if (p->status != 0)
 		error("Player eyes that already exist");
-	p->status = c;
+	p->status =c;
 }
 
 void	map_save(t_map *map, t_player *p, char *line)
@@ -64,7 +64,7 @@ void	map_copy(int fd, t_map *map, char **temp)
 	while (++i < map->height + 1)
 	{
 		line = get_next_line(fd);
-		str = ft_strdup(line);
+		str = ft_strd_up(line);
 		temp[i] = str;
 	}
 }

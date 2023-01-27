@@ -6,11 +6,12 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/18 15:10:28 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:35:51 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 void	map_condition(t_map *map, char **str)
 {
 	int	i;
@@ -54,9 +55,9 @@ void	player_location_setting(t_player *play, char **str, int size)
 			if (str[i][j] == 'W' || str[i][j] == 'E' || str[i][j] == 'S' || \
 				str[i][j] == 'N')
 			{
-				play->pocus_x = i;
-				play->pocus_y = j;
-				str[i][j] = 0;
+				play->pocus_x = i + 0.5;
+				play->pocus_y = j + 0.5;
+				str[i][j] = '0';
 			}
 			j++;
 		}

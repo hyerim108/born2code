@@ -6,11 +6,12 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:28:21 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/18 15:04:43 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:47:15 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 void    paint_img(t_param *p, t_image *img)
 {
     int x;

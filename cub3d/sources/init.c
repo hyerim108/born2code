@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 13:37:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 12:42:36 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:32:53 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,25 @@ void	player_init(t_player *p)
 {
 	p->dirX = 0;
 	p->dirY = 0;
-	if (p->status == 'N')
-	{
-		p->dirY = -1;
-		p->planeX = 0.66;
-	}
-	else if(p->status == 'S')
-	{
-		p->dirY = 1;
-		p->planeX = -0.66;
-	}
-	else if(p->status == 'W')
-	{
-		p->dirX = -1;
-		p->planeY = -0.66;
-	}
-	else
+	if(p->status == 'S')
 	{
 		p->dirX = 1;
+		p->planeY = -0.66;
+	}
+	else if(p->status == 'N')
+	{
+		p->dirX = -1;
 		p->planeY = 0.66;
+	}
+	else if (p->status == 'W')
+	{
+		p->dirY = -1;
+		p->planeX = -0.66;
+	}
+	else if (p->status == 'E')
+	{
+		p->dirY = 1;
+		p->planeX = 0.66;
 	}
 	p->moveScreen = 0.05;
 	p->sprite = 0.05;

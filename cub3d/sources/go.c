@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/18 17:12:26 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:57:11 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void    setting_image(t_param *p, t_image *img, t_map *map)
     while (++i < 5)
     {
         if (i == 1)
-            link = map->NO;
-        else if (i == 2)
             link = map->SO;
+        else if (i == 2)
+            link = map->NO;
         else if (i == 3)
             link = map->WE;
         else

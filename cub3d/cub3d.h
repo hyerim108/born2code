@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/18 14:39:19 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:57:33 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ void    raycasting(t_param *p);
 void    initialization_ray(t_param *p, t_player *player, t_ray *ray ,int x);
 
 /* dda */
-void    dda_algolizm(t_ray *ray, t_map *map, t_player *p);
+void    dda_algolizm(t_ray *ray, t_map *map);
 
 /* perp_cover.c */
 void    perp_cover(t_ray *ray, t_player *p);
