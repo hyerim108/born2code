@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:06:24 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:22:59 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void    setting_image(t_param *p, t_image *img, t_map *map)
         else if (i == 2)
             link = map->NO;
         else if (i == 3)
-            link = map->WE;
-        else
             link = map->EA;
+        else
+            link = map->WE;
         img->img_ptr = mlx_xpm_file_to_image(p->mlx, link, &img->x, &img->y);
         img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bits, \
                     &img->size, &img->endian);

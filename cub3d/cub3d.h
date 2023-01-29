@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:17:41 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:53:06 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@
 # define KEY_D 2
 # define KEY_ESC 53
 
-# define KEY_Q 12
-# define KEY_E 14
-# define KEY_R 15
+# define K_LEFT 123
+# define K_RIGHT 124
 
 # define WIDTH 640
 # define HEIGHT 480
 # define BIT_W 64
 # define BIT_H 64
+
+# define X 0
+# define Y 1
 
 typedef struct s_ray
 {
@@ -88,6 +90,8 @@ typedef struct s_move
 	int	s;
 	int	a;
 	int	d;
+	int left;
+	int right;
 }	t_move;
 
 typedef struct s_map
@@ -191,5 +195,9 @@ void    dda_algolizm(t_ray *ray, t_map *map);
 /* perp_cover.c */
 void    perp_cover(t_ray *ray, t_player *p);
 void    line_height(t_ray *ray, t_player *p);
+
+/* direct_key.c*/
+void    push_direct_right(t_player *p);
+void    push_direct_left(t_player *p);
 
 #endif

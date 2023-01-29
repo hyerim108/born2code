@@ -6,7 +6,7 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 15:50:53 by hyerimki          #+#    #+#              #
-#    Updated: 2023/01/27 16:59:13 by hyerimki         ###   ########.fr        #
+#    Updated: 2023/01/28 16:44:29 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = sources/main.c sources/setting.c sources/init.c sources/parsing.c \
 	sources/paint.c sources/go.c sources/raycasting.c\
 	sources/perp_cover.c \
 	sources/init_ray.c sources/dda.c\
+	sources/direct_key.c\
 	gnl/get_next_line_utils.c \
 	gnl/get_next_line.c \
 	lib/utils.c lib/utils2.c

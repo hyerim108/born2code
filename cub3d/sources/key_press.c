@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:24:09 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 15:24:09 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/28 16:56:41 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ int	key_press(int keycode, t_move *move)
 		move->w = 1;
 	else if (keycode == KEY_S)
 		move->s = 1;
-	else 
-	if (keycode == KEY_ESC)
+	else if (keycode == K_LEFT)
+		move->left = 1;
+	else if (keycode == K_RIGHT)
+		move->right = 1;
+	else if (keycode == KEY_ESC)
 		exit(0);
 	return (0);
 }
@@ -38,6 +41,10 @@ int key_release(int keycode, t_move *move)
 		move->w = 0;
 	else if (keycode == KEY_S)
 		move->s = 0;
+	else if (keycode == K_LEFT)
+		move->left = 0;
+	else if (keycode == K_RIGHT)
+		move->right = 0;
 	return (0);
 }
 

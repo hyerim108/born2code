@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:51:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:51:02 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:49:48 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(char *str)
 {
-	printf("error\n");
+	printf("Error\n");
 	printf("%s\n", str);
 	exit(1);
 }

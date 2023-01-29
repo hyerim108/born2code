@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:45:47 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:43:11 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,17 @@ void	map_copy(int fd, t_map *map, char **temp)
 {
 	int		i;
 	char	*line;
+	char	*arr;
 	char	*str;
 	
 	i = -1;
 	while (++i < map->height + 1)
 	{
 		line = get_next_line(fd);
+		str = (char *)malloc(sizeof(char) * (map->width + 1));
+		if (!str)
+			error("map_capy malloc Error");
+		ft_memset(str, ' ', map->width);
 		str = ft_strd_up(line);
 		temp[i] = str;
 		free(line);
