@@ -11,17 +11,21 @@
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+#include <stdio.h>
 
 int	setting_color(char **line)
 {
 	int	num;
 	int	i;
+	int t;
 
+	t = 0;
 	i = 1;
 	num = ft_atoi(*line);
-	while (num > i)
+	while (num >= t)
 	{
 		i *= 10;
+		t = i;
 		(*line)++;
 	}
 	while ((**line) && (ft_isspace(**line) || **line == ','))

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:15:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/26 18:18:46 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:22:07 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void    perp_cover(t_ray *ray, t_player *p)
         wall = p->pocus_x + (ray->perpwallDist * ray->ray_dirX);
     wall = wall - floor(wall);
     ray->texX = (int)(wall * (double)64);
-    if (ray->side == 0 && ray->ray_dirX < 0)
+    if (ray->side == 0 && ray->ray_dirX > 0)
         ray->texX = 64 - ray->texX -1;
-    if (ray->side == 1 && ray->ray_dirY > 0)
+    if (ray->side == 1 && ray->ray_dirY < 0)
         ray->texX = 64 - ray->texX -1;
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:05 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/28 19:43:11 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:17:53 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,20 @@ void	map_line_skip(int fd, t_map *map)
 	int		i;
 	char	*line;
 
-	i = -1;
-	while (++i < map->map_first - 1)
+	i = 0;
+	while (i < map->map_first - 1)
 	{
 		line = get_next_line(fd);
 		free(line);
-	}	
+		line = NULL;
+		i++;
+	}
 }
 
 void	map_copy(int fd, t_map *map, char **temp)
 {
 	int		i;
 	char	*line;
-	char	*arr;
 	char	*str;
 	
 	i = -1;
@@ -69,9 +70,11 @@ void	map_copy(int fd, t_map *map, char **temp)
 		if (!str)
 			error("map_capy malloc Error");
 		ft_memset(str, ' ', map->width);
-		str = ft_strd_up(line);
+		str[map->width] = '\0';
+		ft_strcpy(str, line);
 		temp[i] = str;
 		free(line);
+		line = NULL;
 	}
 }
 
@@ -81,7 +84,7 @@ void	set_map(char *av, t_map *map)
 	int		fd;
 
 	map->height = map->map_line - map->map_first;
-	temp = (char **)malloc(sizeof(char *) * (map->height + 2));
+	temp = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!temp)
 		error("malloc Error");
 	fd = open(av, O_RDONLY);

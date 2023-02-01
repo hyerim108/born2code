@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:51:55 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/29 12:49:48 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/29 13:14:08 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	main(int ac, char **av)
 	mlx_hook(p.win, 17, 0, &game_end, &p);
 	mlx_loop_hook(p.mlx, &setting_loop, &p);
 	mlx_loop(p.mlx);
+	while(1);
 	return (0);
 }

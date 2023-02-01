@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:16:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:02:23 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:15:30 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,20 @@ void	parsing_line_check(t_map *map, char *line, char c)
 		error("another texture");
 }
 
-int	map_parshing_check(t_map *map, t_player *p, char *line)
+void	map_parshing_check(t_map *map, t_player *p, char *line)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strncmp("NO ", line, 3) == 0 || ft_strncmp("SO ", line, 3) == 0 || \
-			ft_strncmp("WE ", line, 3) == 0 || ft_strncmp("EA ", line, 3) == 0)
-		parsing_line_check(map, line, line[0]);
-	else if (ft_strncmp("F ", line, 2) == 0 || ft_strncmp("C ", line, 2) == 0)
-		parsing_color_check(map, line, line[0]);
 	while (ft_isspace(line[i]))
-		i++;
-	if (line[i] == '0' || line[i] == '1')
+			i++;
+	if (ft_strncmp("NO", line + i, 2) == 0 || ft_strncmp("SO", line + i, 2) == 0 || \
+			ft_strncmp("WE", line + i, 2) == 0 || ft_strncmp("EA", line + i, 2) == 0)
+		parsing_line_check(map, line + i, line[0 + i]);
+	else if (ft_strncmp("F", line + i, 1) == 0 || ft_strncmp("C", line + i, 1) == 0)
+		parsing_color_check(map, line+ i, line[0 + i]);
+	else if (line[i] == '0' || line[i] == '1')
 		map_save(map, p, line);
-	return (1);
 }
 
 int	map_parshing(char *av, t_param *p)
@@ -71,12 +70,14 @@ int	map_parshing(char *av, t_param *p)
 		error("file error");
 	line = get_next_line(fd);
 	while (line){
+		printf("%s",  line);
         p->map.map_line += 1;
-		if (map_parshing_check(&p->map, &p->player, line) == 0)
-			error("map parshing Error");
-		line = get_next_line(fd);
+		map_parshing_check(&p->map, &p->player, line);
 		free(line);
+		line = get_next_line(fd);
 	}
+	printf("%s",  line);
+	free(line);
     if (p->map.map_line == 0)
         error("no map");
     set_map(av, &p->map);

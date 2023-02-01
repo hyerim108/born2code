@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:54 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/24 13:41:34 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:04:48 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	*ft_memset(void *b, int c, size_t len)
 char	*ft_strd_up(const char *s1)
 {
 	char	*arr;
+	char	*result;
 	int		i;
 	int		len;
 
@@ -42,4 +43,21 @@ char	*ft_strd_up(const char *s1)
 	}
 	arr[i] = '\0';
 	return (arr);
+}
+
+size_t	ft_strcpy(char *dst, const char *src)
+{
+	size_t	i;
+
+	if (!dst)
+		return (0);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	while (src[i])
+		i++;
+	return (i);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "lib.h"
+#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
@@ -65,7 +66,6 @@ int	ft_atoi(const char *str)
 	int		i;
 	int		n;
 	long	result;
-
 	i = 0;
 	n = 1;
 	result = 0;
