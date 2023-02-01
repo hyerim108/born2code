@@ -6,12 +6,11 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/27 17:40:48 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:44:50 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-#include <stdio.h>
 
 void	map_condition(t_map *map, char **str)
 {
@@ -35,9 +34,9 @@ void	map_condition(t_map *map, char **str)
 						|| ft_isspace(str[i - 1][j]))
 					error("No surround Wall");
 			}
-            j++;
+			j++;
 		}
-        i++;
+		i++;
 	}
 }
 
@@ -45,7 +44,7 @@ void	player_location_setting(t_player *play, char **str, int size)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < size)
 	{

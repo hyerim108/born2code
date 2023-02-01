@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 18:53:31 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/16 18:30:54 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:10:05 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	setting_color(char **line)
 {
 	int	num;
 	int	i;
-	int t;
+	int	t;
 
 	t = 0;
 	i = 1;

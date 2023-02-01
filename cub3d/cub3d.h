@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 12:16:33 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:54:20 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define WIDTH 640
-# define HEIGHT 480
+# define WIDTH 1500
+# define HEIGHT 1000
 # define BIT_W 64
 # define BIT_H 64
 
