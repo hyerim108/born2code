@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 13:37:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/01/28 19:36:41 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:34:51 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	initialization_move(t_move *move)
 	move->a = 0;
 	move->s = 0;
 	move->d = 0;
+	move->left = 0;
+	move->right = 0;
 }
 
 void	player_init(t_player *p)

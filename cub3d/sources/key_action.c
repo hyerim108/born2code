@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:13:53 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 14:13:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:25:52 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	push_key_d(t_player *p, t_map *map)
 	
 	x = p->dirX * p->moveScreen;
 	y = p->dirY * p->moveScreen;
-	if (map->map[(int)(p->pocus_x + x * 1.5)][(int)(p->pocus_y)] == '0')
+	if (map->map[(int)(p->pocus_x + y * 2)][(int)(p->pocus_y)] == '0')
 		p->pocus_x += y;
-	if (map->map[(int)(p->pocus_x)][(int)(p->pocus_y + y * 1.5)] == '0')
+	if (map->map[(int)(p->pocus_x)][(int)(p->pocus_y - x * 2)] == '0')
 		p->pocus_y -= x;
 }
 void	push_key_a(t_player *p, t_map *map)
@@ -31,9 +31,9 @@ void	push_key_a(t_player *p, t_map *map)
 	
 	x = p->dirX * p->moveScreen;
 	y = p->dirY * p->moveScreen;
-	if (map->map[(int)(p->pocus_x + x * 1.1)][(int)(p->pocus_y)] == '0')
+	if (map->map[(int)(p->pocus_x - y * 2)][(int)(p->pocus_y)] == '0')
 		p->pocus_x -= y;
-	if (map->map[(int)(p->pocus_x)][(int)(p->pocus_y + y * 1.1)] == '0')
+	if (map->map[(int)(p->pocus_x)][(int)(p->pocus_y + x * 2)] == '0')
 		p->pocus_y += x;
 }
 
@@ -73,9 +73,9 @@ int key(t_move *move, t_player *play, t_map *map)
 		push_key_s(play, map);
 	if (move->w && !move->s)
 		push_key_w(play, map);
-	if (move->left > 0 && !move->right)
+	if (move->left && !move->right)
 		push_direct_left(play);
-	if (move->right > 0 && !move->left)
+	if (move->right && !move->left)
 		push_direct_right(play);
 	return (1);
 }
