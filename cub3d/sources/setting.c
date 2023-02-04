@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:46:04 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 16:42:32 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:03:13 by sangyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ void	setting_buffer(t_ray *ray, t_image *img, int x)
 	int	color;
 	int	i;
 
-	i = ray->drawStart;
-	while (i < ray->drawEnd)
+	i = ray->drawstart;
+	while (i < ray->drawend)
 	{
-		ray->texY = (int)ray->texPos & (BIT_H - 1);
+		ray->texy = (int)ray->texpos & (BIT_H - 1);
 		if (ray->side == 0)
 		{
-			if (ray->ray_dirX >= 0)
-				color = img->img_arr[1][64 * ray->texY + ray->texX];
+			if (ray->ray_dirx >= 0)
+				color = img->img_arr[1][64 * ray->texy + ray->texx];
 			else
-				color = img->img_arr[2][64 * ray->texY + ray->texX];
+				color = img->img_arr[2][64 * ray->texy + ray->texx];
 		}
 		else if (ray->side == 1)
 		{
-			if (ray->ray_dirY < 0)
-				color = img->img_arr[4][64 * ray->texY + ray->texX];
+			if (ray->ray_diry < 0)
+				color = img->img_arr[4][64 * ray->texy + ray->texx];
 			else
-				color = img->img_arr[3][64 * ray->texY + ray->texX];
+				color = img->img_arr[3][64 * ray->texy + ray->texx];
 		}
 		img->arr[i][x] = color;
-		ray->texPos += ray->step;
+		ray->texpos += ray->step;
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:41:45 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 16:54:20 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:24:27 by sangyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,29 @@
 
 typedef struct s_ray
 {
-	int		mapX;
-	int		mapY;
-	double	ray_dirX;
-	double	ray_dirY;
-	double	deltaDistX;
-	double	deltaDistY;
-	double sideDistX;
-	double sideDistY;
-	double perpwallDist;
-	double	texPos;
+	int		mapx;
+	int		mapy;
+	double	ray_dirx;
+	double	ray_diry;
+	double	deltadistx;
+	double	deltadisty;
+	double	sidedistx;
+	double	sidedisty;
+	double	perpwalldist;
+	double	texpos;
 	double	step;
-	int stepX;
-	int stepY;
-	int side;
-	int texX;
-	int texY;
-	int	drawEnd;
-	int	drawStart;
-	int	lineHeight;
+	int		stepx;
+	int		stepy;
+	int		side;
+	int		texx;
+	int		texy;
+	int		drawend;
+	int		drawstart;
+	int		lineheight;
 }	t_ray;
 
-typedef	struct s_color
+typedef struct s_color
 {
-	/* data */
 	int		r;
 	int		g;
 	int		b;
@@ -76,11 +75,11 @@ typedef struct s_player
 	char	status;
 	double	pocus_x;
 	double	pocus_y;
-	double	dirX;
-	double	dirY;
-	double	planeX;
-	double	planeY;
-	double	moveScreen;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	movescreen;
 	double	sprite;
 }	t_player;
 
@@ -90,17 +89,17 @@ typedef struct s_move
 	int	s;
 	int	a;
 	int	d;
-	int left;
-	int right;
+	int	left;
+	int	right;
 }	t_move;
 
 typedef struct s_map
 {
 	char	**map;
-	char	*NO;
-	char	*SO;
-	char	*WE;
-	char	*EA;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
 
 	int		floor;
 	int		celling;
@@ -114,7 +113,7 @@ typedef struct s_image
 {
 	void	*img_ptr;
 	int		*data;
-	
+
 	int		size;
 	int		endian;
 	int		bits;
@@ -128,9 +127,9 @@ typedef struct s_image
 
 typedef struct s_param
 {
-	void	*mlx;
-	void	*win;
-	
+	void		*mlx;
+	void		*win;
+
 	t_map		map;
 	t_player	player;
 	t_image		img;
@@ -146,58 +145,59 @@ void	build_map(char *av, t_param *p);
 void	setting_buffer(t_ray *ray, t_image *img, int x);
 
 /* color.c */
-void    parsing_color_check(t_map *map, char *line, char c);
+void	parsing_color_check(t_map *map, char *line, char c);
 
 /* parsing */
-int 	map_parshing(char *av, t_param *p);
+int		map_parshing(char *av, t_param *p);
 
 /* init */
-void 	initialization_param(t_map *map, char *av);
+void	initialization_param(t_map *map, char *av);
 void	initialization_image(t_image *img);
 void	initialization_move(t_move *move);
 void	player_init(t_player *player);
 
 /* map */
-void    map_save(t_map *map, t_player *p, char *line);
+void	map_save(t_map *map, t_player *p, char *line);
 void	set_map(char *av, t_map *map);
 
 /* check */
-void    map_condition(t_map *map, char **str);
+void	map_condition(t_map *map, char **str);
 void	player_location_setting(t_player *play, char **str, int size);
 
 /* key_action */
-int 	key(t_move *move, t_player *play, t_map *map);
+int		key(t_move *move, t_player *play, t_map *map);
 
 /* key_press*/
 int		key_press(int keycode, t_move *move);
-int 	key_release(int keycode, t_move *move);
+int		key_release(int keycode, t_move *move);
 int		game_end(t_param *p);
 
 /* loop */
 int		setting_loop(t_param *p);
 
 /* paint */
-void    pating_floor_celling(t_param *p, t_map *map);
-void    paint_img(t_param *p, t_image *img);
+void	pating_floor_celling(t_param *p, t_map *map);
+void	paint_img(t_param *p, t_image *img);
+void	fill_img(t_image *img, int num);
 
 /* go */
-void    go(t_param *p);
+void	go(t_param *p);
 
 /* raycasting */
-void    raycasting(t_param *p);
+void	raycasting(t_param *p);
 
 /* init_ray */
-void    initialization_ray(t_param *p, t_player *player, t_ray *ray ,int x);
+void	initialization_ray(t_param *p, t_player *player, t_ray *ray, int x);
 
 /* dda */
-void    dda_algolizm(t_ray *ray, t_map *map);
+void	dda_algolizm(t_ray *ray, t_map *map);
 
 /* perp_cover.c */
-void    perp_cover(t_ray *ray, t_player *p);
-void    line_height(t_ray *ray, t_player *p);
+void	perp_cover(t_ray *ray, t_player *p);
+void	line_height(t_ray *ray, t_player *p);
 
 /* direct_key.c*/
-void    push_direct_right(t_player *p);
-void    push_direct_left(t_player *p);
+void	push_direct_right(t_player *p);
+void	push_direct_left(t_player *p);
 
 #endif

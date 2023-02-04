@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 13:37:47 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 17:16:45 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:04:12 by sangyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	initialization_param(t_map *map, char *av)
 {
 	map->map = NULL;
-	map->EA = NULL;
-	map->NO = NULL;
-	map->SO = NULL;
-	map->WE = NULL;
+	map->ea = NULL;
+	map->no = NULL;
+	map->so = NULL;
+	map->we = NULL;
 	map->height = 0;
 	map->width = 0;
 	map->celling = 0;
@@ -61,28 +61,28 @@ void	initialization_move(t_move *move)
 
 void	player_init(t_player *p)
 {
-	p->dirX = 0;
-	p->dirY = 0;
+	p->dirx = 0;
+	p->diry = 0;
 	if (p->status == 'S')
 	{
-		p->dirX = 1;
-		p->planeY = -0.66;
+		p->dirx = 1;
+		p->planey = -0.66;
 	}
 	else if (p->status == 'N')
 	{
-		p->dirX = -1;
-		p->planeY = 0.66;
+		p->dirx = -1;
+		p->planey = 0.66;
 	}
 	else if (p->status == 'W')
 	{
-		p->dirY = -1;
-		p->planeX = -0.66;
+		p->diry = -1;
+		p->planex = -0.66;
 	}
 	else if (p->status == 'E')
 	{
-		p->dirY = 1;
-		p->planeX = 0.66;
+		p->diry = 1;
+		p->planex = 0.66;
 	}
-	p->moveScreen = 0.05;
+	p->movescreen = 0.05;
 	p->sprite = 0.05;
 }

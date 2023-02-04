@@ -6,12 +6,12 @@
 #    By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 15:50:53 by hyerimki          #+#    #+#              #
-#    Updated: 2023/01/28 16:44:29 by hyerimki         ###   ########.fr        #
+#    Updated: 2023/02/03 21:05:11 by hyerimki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = sources/main.c sources/setting.c sources/init.c sources/parsing.c \
 	sources/color.c sources/map.c sources/check.c\

@@ -6,28 +6,38 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:56:00 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 17:09:39 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:06:21 by sangyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	fill_img(t_image *img, int num)
+void	map_texture_check(char *line, int i)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < img->y)
+	if (ft_strncmp("i", line, 1) == 0)
 	{
-		x = 0;
-		while (x < img->x)
-		{
-			img->img_arr[num][img->x * y + x] = img->data[img->y * y + x];
-			x++;
-		}
-		y++;
+		if (ft_strncmp("img/EE.xpm", line, 10) != 0 && i == 3)
+			error("img texture error");
+		else if (ft_strncmp("img/NN.xpm", line, 10) != 0 && i == 2)
+			error("img texture error");
+		else if (ft_strncmp("img/SS.xpm", line, 10) != 0 && i == 1)
+			error("img texture error");
+		else if (ft_strncmp("img/WW.xpm", line, 10) != 0 && i == 4)
+			error("img texture error");
 	}
+	else if (ft_strncmp("./", line, 2) == 0)
+	{
+		if (ft_strncmp("img/EE.xpm", line + 2, 10) != 0 && i == 3)
+			error("img texture error");
+		else if (ft_strncmp("img/NN.xpm", line + 2, 10) != 0 && i == 2)
+			error("img texture error");
+		else if (ft_strncmp("img/SS.xpm", line + 2, 10) != 0 && i == 1)
+			error("img texture error");
+		else if (ft_strncmp("img/WW.xpm", line + 2, 10) != 0 && i == 4)
+			error("img texture error");
+	}
+	else
+		error("Not img absolute path");
 }
 
 void	setting_image(t_param *p, t_image *img, t_map *map)
@@ -40,13 +50,14 @@ void	setting_image(t_param *p, t_image *img, t_map *map)
 	while (++i < 5)
 	{
 		if (i == 1)
-			link = map->SO;
+			link = map->so;
 		else if (i == 2)
-			link = map->NO;
+			link = map->no;
 		else if (i == 3)
-			link = map->EA;
+			link = map->ea;
 		else
-			link = map->WE;
+			link = map->we;
+		map_texture_check(link, i);
 		img->img_ptr = mlx_xpm_file_to_image(p->mlx, link, &img->x, &img->y);
 		img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bits, \
 				&img->size, &img->endian);

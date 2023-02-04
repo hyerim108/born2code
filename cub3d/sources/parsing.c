@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:16:48 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 18:12:31 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:05:12 by sangyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,42 +32,31 @@ void	parsing_line_check(t_map *map, char *line, char c)
 	temp = put_parsing(line);
 	if (!temp)
 		error("nothing texture");
-	if (c == 'N' && map->NO == NULL)
-		map->NO = temp;
-	else if (c == 'S' && map->SO == NULL)
-		map->SO = temp;
-	else if (c == 'W' && map->WE == NULL)
-		map->WE = temp;
-	else if (c == 'E' && map->EA == NULL)
-		map->EA = temp;
+	if (c == 'N' && map->no == NULL)
+		map->no = temp;
+	else if (c == 'S' && map->so == NULL)
+		map->so = temp;
+	else if (c == 'W' && map->we == NULL)
+		map->we = temp;
+	else if (c == 'E' && map->ea == NULL)
+		map->ea = temp;
 	else
 		error("another texture");
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	parshing_null_check(t_map *map)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	while (i < n && (str1[i] != '\0' || str2[i] != '\0'))
-	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
-	}
-	return (0);
+	if (map->so == NULL || map->we == NULL || map->ea == NULL || \
+		map->no == NULL)
+		error("No map texture");
+	if (map->floor == 0 || map->celling == 0)
+		error("No color texture");
 }
 
 void	map_parshing_check(t_map *map, t_player *p, char *line)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_isspace(line[i]))
 			i++;
@@ -99,6 +88,7 @@ int	map_parshing(char *av, t_param *p)
 		free(line);
 		line = get_next_line(fd);
 	}
+	parshing_null_check(&p->map);
 	free(line);
 	if (p->map.map_line == 0)
 		error("no map");

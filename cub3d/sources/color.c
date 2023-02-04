@@ -6,7 +6,7 @@
 /*   By: hyerimki <hyerimki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 18:53:31 by hyerimki          #+#    #+#             */
-/*   Updated: 2023/02/01 17:10:05 by hyerimki         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:03:23 by hyerimki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ int	setting_color(char **line)
 
 void	color_num_check(char *line)
 {
+	int	count;
+
+	count = 0;
 	while (*line != '\n')
 	{
 		if (*line == ',')
 		{
+			count++;
 			line++;
 			while (ft_isspace(*line))
 				line++;
@@ -47,6 +51,8 @@ void	color_num_check(char *line)
 			error("color line No number");
 		line++;
 	}
+	if (count != 2)
+		error("color count");
 }
 
 void	parsing_color_check(t_map *map, char *line, char c)
