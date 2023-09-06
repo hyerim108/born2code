@@ -28,4 +28,4 @@
   + WebSokket 방식
     + 웹 소켓은 HTML5 표준 기술로, Clien와 서버가 연결된 후 부터 HTTP요청, 응답과는 관계없이 서버와 양방향 통신이 가능하다.
     + 채팅, 게인, 실시간 주식차트와 같은 실시간이 요구되는 응용프로그램 개발에 사용가능하다.
-<img src="webSoket.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="client"></img>
+<img src="webSocket.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="webSocket"></img>
