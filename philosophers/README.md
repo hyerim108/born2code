@@ -21,8 +21,8 @@ void    add(void)
 
 ### mutex
 > 동시 프로그래밍에서 공유 불가능한 자원의 동시 사용을 피하기 위해 사용하는 알고리즘
-  ++ 임계구역을 가진 스레드들의 실행시간이 서로 겹치지 않고 각각 단독으로 실행되도록하는 기술
-
++ 임계구역을 가진 스레드들의 실행시간이 서로 겹치지 않고 각각 단독으로 실행되도록하는 기술
+![1307745C-297C-46C3-A5B5-C47ACA8579C0.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a5e2e17-94ed-4025-903d-bf8d929a79af/1307745C-297C-46C3-A5B5-C47ACA8579C0.jpeg)
 ```
 void    add(void)
 {
@@ -36,8 +36,7 @@ void    add(void)
   pthread_mutex_unlock(&m);
 }
 ```
-뮤텍스를 바탕으로 설명한다면 pthread_mutex_lock을 한 이후부터 pthread_mutex_unlock을 할때까지 **임계구역(critical section)**이 설정된다. 이 구역에는 스레드/프로세스가 하나만 들어갈 수 있다.
+뮤텍스를 바탕으로 설명한다면 pthread_mutex_lock을 한 이후부터 pthread_mutex_unlock을 할때까지 임계구역(critical section)이 설정된다. 이 구역에는 스레드/프로세스가 하나만 들어갈 수 있다.
 
-뮤텍스를 바탕으로 설명한다면 pthread_mutex_lock을 한 이후부터 pthread_mutex_unlock을 할때까지 **임계구역(critical section)**이 설정된다. 이 구역에는 스레드/프로세스가 하나만 들어갈 수 있다.
 ##### 임계영역(critical Section)
 > 한번에 하나의 프로세스만 액세스 할 수 있는 코드 영역
