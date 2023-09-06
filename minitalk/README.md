@@ -1,6 +1,7 @@
 ## Description
 > The purpose of this project is to code a small data exchange program using UNIX signals.
 
+<img src="client.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="client"></img>
 #### Client (서비스를 요청)
 클라이언트란, 서버에게 서비스를 요구하는 사용자나 컴퓨터이다.
 웹 브라우저는 클라이언트에서 동작하며, 웹 브라우저인 크롬, 파이어폭스, 익스플로러를 웹 클라이언트라고한다.
@@ -27,3 +28,4 @@
   + WebSokket 방식
     + 웹 소켓은 HTML5 표준 기술로, Clien와 서버가 연결된 후 부터 HTTP요청, 응답과는 관계없이 서버와 양방향 통신이 가능하다.
     + 채팅, 게인, 실시간 주식차트와 같은 실시간이 요구되는 응용프로그램 개발에 사용가능하다.
+<img src="webSoket.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="client"></img>
