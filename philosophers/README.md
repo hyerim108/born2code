@@ -22,7 +22,7 @@ void    add(void)
 ### mutex
 > 동시 프로그래밍에서 공유 불가능한 자원의 동시 사용을 피하기 위해 사용하는 알고리즘
 + 임계구역을 가진 스레드들의 실행시간이 서로 겹치지 않고 각각 단독으로 실행되도록하는 기술
-![1307745C-297C-46C3-A5B5-C47ACA8579C0.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a5e2e17-94ed-4025-903d-bf8d929a79af/1307745C-297C-46C3-A5B5-C47ACA8579C0.jpeg)
+<img src="[/path/to/img.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a5e2e17-94ed-4025-903d-bf8d929a79af/1307745C-297C-46C3-A5B5-C47ACA8579C0.jpeg)" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 ```
 void    add(void)
 {
